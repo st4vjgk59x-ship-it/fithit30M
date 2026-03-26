@@ -106,6 +106,20 @@
                 </div>
             </article>
 
+            <!-- Sports News Card -->
+            <article class="card news-card" aria-label="Napi sporthírek">
+                <h3>📰 Napi Sporthírek</h3>
+                <div id="news-list" class="news-list" role="list" aria-live="polite" aria-busy="true">
+                    <div class="news-loading">
+                        <span class="loading-spinner news-spinner" aria-hidden="true"></span>
+                        <span>Hírek betöltése...</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline news-refresh-btn" onclick="app.refreshNews()">
+                    🔄 Frissítés
+                </button>
+            </article>
+
             <!-- User Info Footer -->
             <footer class="card user-info-card">
                 <div class="user-info">
