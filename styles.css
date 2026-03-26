@@ -331,6 +331,62 @@ input[type="number"]:valid:not(:placeholder-shown) {
 }
 
 /* ============================================
+   Lidl Weekly Offer Card
+   ============================================ */
+.lidl-card {
+    border-top: 4px solid #F5D800;
+}
+
+.lidl-card h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #003882;
+    margin-bottom: 4px;
+}
+
+.lidl-week-info {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+}
+
+.lidl-offer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.lidl-offer-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-light);
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid #F5D800;
+    font-size: 0.92rem;
+}
+
+.lidl-item-name {
+    color: var(--text-primary);
+}
+
+.lidl-item-price {
+    font-weight: 700;
+    color: #003882;
+    white-space: nowrap;
+    margin-left: 12px;
+}
+
+.lidl-hint {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* ============================================
    Recipe Section
    ============================================ */
 .recipe-section {

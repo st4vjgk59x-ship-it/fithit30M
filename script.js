@@ -229,6 +229,124 @@ window.app = (function () {
         remove: function (key) { localStorage.removeItem(key); }
     };
 
+    // ====== LIDL WEEKLY OFFERS (8 rotating themes, Thu–Wed cycle) ======
+    // Note: prices and products are illustrative examples, not official Lidl data.
+    const lidlWeeklyOffers = [
+        {
+            tema: '🥦 Zöldség & Gyümölcs hét',
+            termekek: [
+                { nev: '🍎 Alma (Golden/Gala)',         ar: '299 Ft/kg'     },
+                { nev: '🥦 Brokkoli',                   ar: '399 Ft/db'     },
+                { nev: '🥕 Sárgarépa',                  ar: '149 Ft/kg'     },
+                { nev: '🍌 Banán',                       ar: '449 Ft/kg'     },
+                { nev: '🥗 Vegyes salátalevél',          ar: '349 Ft/csomag' }
+            ]
+        },
+        {
+            tema: '🍗 Húsáruk hét',
+            termekek: [
+                { nev: '🍗 Csirkemell filé',            ar: '1 299 Ft/kg'   },
+                { nev: '🥩 Sertés lapocka',             ar: '999 Ft/kg'     },
+                { nev: '🥓 Füstölt szalonna',           ar: '899 Ft/csomag' },
+                { nev: '🐟 Lazacfilé',                  ar: '2 499 Ft/csomag'},
+                { nev: '🌭 Frankfurti virsli (6 db)',   ar: '549 Ft/csomag' }
+            ]
+        },
+        {
+            tema: '🧀 Tejtermékek & Tojás hét',
+            termekek: [
+                { nev: '🥛 Tej 2,8% (1 l)',             ar: '269 Ft'        },
+                { nev: '🧀 Trappista sajt',              ar: '1 199 Ft/kg'   },
+                { nev: '🥚 Tojás (10 db)',               ar: '649 Ft'        },
+                { nev: '🧈 Vaj (200 g)',                 ar: '499 Ft'        },
+                { nev: '🍦 Görög joghurt (500 g)',       ar: '299 Ft'        }
+            ]
+        },
+        {
+            tema: '🍞 Pékáru & Reggeli hét',
+            termekek: [
+                { nev: '🍞 Teljes kiőrlésű kenyér',     ar: '449 Ft'        },
+                { nev: '🥐 Croissant (6 db)',            ar: '599 Ft'        },
+                { nev: '🥣 Zabpehely (500 g)',           ar: '349 Ft'        },
+                { nev: '🫐 Granola (400 g)',             ar: '799 Ft'        },
+                { nev: '🍫 Mogyorókrém (400 g)',        ar: '599 Ft'        }
+            ]
+        },
+        {
+            tema: '💪 Sport & Fitness hét',
+            termekek: [
+                { nev: '💪 Protein szelet',             ar: '349 Ft/db'     },
+                { nev: '🥜 Mandula (200 g)',            ar: '699 Ft'        },
+                { nev: '🫐 Fagyasztott bogyós gyümölcs',ar: '799 Ft/csomag' },
+                { nev: '🍵 Zöld tea (20 filter)',       ar: '499 Ft'        },
+                { nev: '🥤 Izotóniás ital (750 ml)',    ar: '299 Ft'        }
+            ]
+        },
+        {
+            tema: '🥫 Konzerv & Száraztermékek hét',
+            termekek: [
+                { nev: '🐟 Tonhal konzerv (3 db)',      ar: '799 Ft'        },
+                { nev: '🫘 Csicseriborsó konzerv',      ar: '249 Ft/db'     },
+                { nev: '🍝 Teljes kiőrlésű tészta',     ar: '399 Ft/csomag' },
+                { nev: '🥫 Paradicsomszósz (passata)',  ar: '299 Ft'        },
+                { nev: '🌾 Barna rizs (1 kg)',          ar: '449 Ft'        }
+            ]
+        },
+        {
+            tema: '🧴 Háztartás & Tisztítószerek hét',
+            termekek: [
+                { nev: '🧴 Mosógél (1,5 l)',            ar: '1 299 Ft'      },
+                { nev: '🧼 Folyékony szappan (500 ml)', ar: '499 Ft'        },
+                { nev: '🧻 WC papír (10 tek.)',         ar: '899 Ft'        },
+                { nev: '🫧 Mosogatószer (750 ml)',      ar: '399 Ft'        },
+                { nev: '🧺 Öblítő (1,5 l)',            ar: '799 Ft'        }
+            ]
+        },
+        {
+            tema: '🌿 Bio & Prémium hét',
+            termekek: [
+                { nev: '🥦 Bio brokkoli',               ar: '599 Ft/db'     },
+                { nev: '🥬 Bio spenót (250 g)',         ar: '499 Ft'        },
+                { nev: '🍓 Bio eper (250 g)',           ar: '899 Ft'        },
+                { nev: '🥚 Bio tojás (6 db)',           ar: '799 Ft'        },
+                { nev: '🫒 Extra szűz olívaolaj (500 ml)', ar: '1 999 Ft'  }
+            ]
+        }
+    ];
+
+    // Returns the offer for the current Lidl week (starts every Thursday).
+    function getLidlOffer() {
+        var now = new Date();
+        // 0=Sun 1=Mon 2=Tue 3=Wed 4=Thu 5=Fri 6=Sat
+        // Days elapsed since the most recent Thursday:
+        var daysSinceThursday = (now.getDay() + 3) % 7;
+        var thursday = new Date(now);
+        thursday.setDate(now.getDate() - daysSinceThursday);
+        thursday.setHours(0, 0, 0, 0);
+
+        // Use epoch-based week index so it advances every Thursday
+        var msPerWeek   = 7 * 24 * 60 * 60 * 1000;
+        var weekIndex   = Math.floor(thursday.getTime() / msPerWeek);
+        var offerIndex  = weekIndex % lidlWeeklyOffers.length;
+
+        // Format Thu date as "YYYY. MM. DD."
+        var dd  = String(thursday.getDate()).padStart(2, '0');
+        var mm  = String(thursday.getMonth() + 1).padStart(2, '0');
+        var validFrom = thursday.getFullYear() + '. ' + mm + '. ' + dd + '.';
+
+        // Next Thursday
+        var nextThursday = new Date(thursday.getTime() + msPerWeek);
+        var dd2 = String(nextThursday.getDate()).padStart(2, '0');
+        var mm2 = String(nextThursday.getMonth() + 1).padStart(2, '0');
+        var validTo = nextThursday.getFullYear() + '. ' + mm2 + '. ' + dd2 + '.';
+
+        return {
+            offer:     lidlWeeklyOffers[offerIndex],
+            validFrom: validFrom,
+            validTo:   validTo
+        };
+    }
+
     // ====== INPUT VALIDATION ======
     const validation = {
         isValidName:   function (name)   { return name && name.trim().length > 0; },
@@ -252,7 +370,10 @@ window.app = (function () {
         displayWeight:    document.getElementById('display-weight'),
         completedDays:    document.getElementById('completed-days'),
         remainingDays:    document.getElementById('remaining-days'),
-        loadingSpinner:   document.getElementById('loading-spinner')
+        loadingSpinner:   document.getElementById('loading-spinner'),
+        lidlWeekInfo:     document.getElementById('lidl-week-info'),
+        lidlOfferList:    document.getElementById('lidl-offer-list'),
+        lidlOfferTheme:   document.getElementById('lidl-offer-theme')
     };
 
     // ====== APP STATE ======
@@ -319,6 +440,7 @@ window.app = (function () {
         el.authScreen.setAttribute('hidden', '');
         el.mainApp.removeAttribute('hidden');
         updateUI();
+        updateLidlOffer();
     }
 
     // ====== UPDATE UI ======
@@ -350,6 +472,21 @@ window.app = (function () {
                     '<li><span class="recipe-label">Vacsora</span>' + recipe.vacsora + '</li>' +
                 '</ul>' +
             '</div>';
+    }
+
+    // ====== LIDL WEEKLY OFFER UI ======
+    function updateLidlOffer() {
+        var data = getLidlOffer();
+        el.lidlOfferTheme.textContent = data.offer.tema;
+        el.lidlWeekInfo.textContent   = '📅 Érvényes: ' + data.validFrom + ' – ' + data.validTo;
+
+        var items = data.offer.termekek.map(function (t) {
+            return '<li>' +
+                '<span class="lidl-item-name">' + t.nev + '</span>' +
+                '<span class="lidl-item-price">' + t.ar + '</span>' +
+            '</li>';
+        }).join('');
+        el.lidlOfferList.innerHTML = items;
     }
 
     // ====== NEXT DAY ======
