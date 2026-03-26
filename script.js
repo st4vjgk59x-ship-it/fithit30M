@@ -35,6 +35,190 @@ window.app = (function () {
         { day: 30, exercises: '50 Min Running, 140 Sit-ups, 120 Burpees - FINAL CHALLENGE!',       difficulty: 'Extreme'   }
     ];
 
+    // ====== DAILY RECIPE PLAN ======
+    const recipeProgram = [
+        {
+            day: 1,
+            reggeli: '🥣 Zabpehely – zabpehely, tej, banán, méz',
+            ebed:    '🥗 Csirkés saláta – grillcsirke, rukola, cseresznye paradicsom, olívaolaj',
+            vacsora: '🍳 Rántotta zöldségekkel – 3 tojás, paprika, hagyma, paradicsom'
+        },
+        {
+            day: 2,
+            reggeli: '🍳 Főtt tojás pirítóssal – 2 tojás, teljes kiőrlésű kenyér, avokádó',
+            ebed:    '🍲 Lencseleves – lencse, sárgarépa, zeller, fokhagyma',
+            vacsora: '🐟 Sült lazac – lazacfilé, citrom, brokkoli, barna rizs'
+        },
+        {
+            day: 3,
+            reggeli: '🍌 Protein smoothie – banán, görög joghurt, mandulatej, protein por',
+            ebed:    '🌯 Tonhalas wrap – tonhal, teljes kiőrlésű tortilla, saláta, paradicsom',
+            vacsora: '🍗 Sült csirkemell – csirkemell, édesburgonya, zöldbab'
+        },
+        {
+            day: 4,
+            reggeli: '🫐 Görög joghurt – joghurt, feketeáfonya, granola, méz',
+            ebed:    '🥙 Csicseriborsós tál – csicseriborsó, cukkini, paprika, kuszkusz',
+            vacsora: '🥩 Marhahúsos wok – marhahús csíkok, brokkoli, sárgarépa, szójaszósz, barna rizs'
+        },
+        {
+            day: 5,
+            reggeli: '🍞 Avokádós pirítós – teljes kiőrlésű kenyér, avokádó, tojás, sóspálma',
+            ebed:    '🍜 Zöldséges levesgulyás – burgonya, sárgarépa, zeller, zöldpaprika',
+            vacsora: '🐟 Tilápia saláta – tilápia, paradicsom, uborka, citromdresszing'
+        },
+        {
+            day: 6,
+            reggeli: '🥞 Banános palacsinta – zab, banán, tojás, fahéj (sütőolaj nélkül)',
+            ebed:    '🍗 Csirke quinoa tál – csirkemell, quinoa, spenót, feta sajt',
+            vacsora: '🥣 Zöldséges lencse – lencse, paradicsom, spenót, fokhagyma, curry'
+        },
+        {
+            day: 7,
+            reggeli: '🥚 Omlett – 3 tojás, gomba, spenót, feta sajt',
+            ebed:    '🥗 Lazacos tészta – teljes kiőrlésű tészta, füstölt lazac, citrom, kapor',
+            vacsora: '🍲 Sütőtök krémleves – sütőtök, gyömbér, kókusztej, koriander'
+        },
+        {
+            day: 8,
+            reggeli: '🌾 Overnight oats – zabpehely, chia mag, mandulatej, eper',
+            ebed:    '🌮 Csirkés taco tál – csirkemell, fekete bab, salsa, saláta, kukorica',
+            vacsora: '🐟 Sült makréla – makréla, citrom, fokhagyma, petrezselyem, paradicsom saláta'
+        },
+        {
+            day: 9,
+            reggeli: '🍇 Gyümölcssaláta protein joghurttal – vegyes gyümölcs, görög joghurt',
+            ebed:    '🥙 Humuszos tál – humusz, pita, paprika, uborka, sárgarépa',
+            vacsora: '🍗 Mézes mustáros csirke – csirkecomb, édesburgonya, brokkoli'
+        },
+        {
+            day: 10,
+            reggeli: '🥣 Müzli – zabpehely, dió, mandula, aszalt áfonya, tej',
+            ebed:    '🍜 Csirkeleves – csirkemell, répa, zeller, petrezselyem, tészta',
+            vacsora: '🥩 Sertésszűz – sertésszűz, alma, hagymalekvár, párolt káposzta'
+        },
+        {
+            day: 11,
+            reggeli: '🍓 Protein smoothie bowl – eper, banán, protein por, granola, kókuszreszelék',
+            ebed:    '🥗 Quinoa saláta – quinoa, avokádó, fekete bab, paprika, lime',
+            vacsora: '🐟 Tonhalas rizs – tonhal, barna rizs, zöldborsó, kukorica, szójaszósz'
+        },
+        {
+            day: 12,
+            reggeli: '🍳 Shakshuka – paradicsom, tojás, paprika, chili, feta sajt',
+            ebed:    '🌯 Pulykás wrap – pulykamell, teljes kiőrlésű tortilla, avokádó, saláta',
+            vacsora: '🍲 Csirke curry – csirkemell, kókusztej, paradicsom, gyömbér, barna rizs'
+        },
+        {
+            day: 13,
+            reggeli: '🥣 Chia puding – chia mag, mandulatej, vanilla, málna',
+            ebed:    '🥗 Caprese saláta + tojás – paradicsom, mozzarella, bazsalikom, keménytojás',
+            vacsora: '🐟 Tengeri herkentyű – garnélarák, fokhagyma, citrom, teljes kiőrlésű tészta, spenót'
+        },
+        {
+            day: 14,
+            reggeli: '🍌 Banános protein palacsinta – banán, tojás, zabpehely, fahéj',
+            ebed:    '🍲 Babgulyás – fehérbab, paradicsom, paprika, hagyma, kolbász',
+            vacsora: '🥩 Grillezett steak – bélszín, grill zöldségek, édesburgonya'
+        },
+        {
+            day: 15,
+            reggeli: '🥑 Avokádós tojás – sütőben sült tojás avokádóban, paradicsom, salsa',
+            ebed:    '🥗 Görög saláta csirkével – csirkemell, uborka, paradicsom, olíva, feta',
+            vacsora: '🍗 Citromos sült csirke – csirkecomb, citrom, rozmaring, fokhagyma, zöldségek'
+        },
+        {
+            day: 16,
+            reggeli: '🌾 Zabkása almával – zabpehely, alma, fahéj, dió, méz',
+            ebed:    '🍜 Spenótos leveses rizs – spenót, rizs, tojás, fokhagyma, csirke alaplé',
+            vacsora: '🐟 Sült tőkehal – tőkehal, pesztó, brokkoli, citromos quinoa'
+        },
+        {
+            day: 17,
+            reggeli: '🍓 Joghurt parfait – görög joghurt, eper, bogyós gyümölcs, granola, méz',
+            ebed:    '🥙 Falafel tál – falafel, bulgur, uborka, paradicsom, tahini szósz',
+            vacsora: '🥩 Csirke stir-fry – csirkemell, brokkoli, sárgarépa, szójaszósz, gyömbér, rizs'
+        },
+        {
+            day: 18,
+            reggeli: '🥚 Vegán scrambled tofu – tofu, kurkuma, paprika, hagyma, paradicsom',
+            ebed:    '🍲 Csicseriborsó curry – csicseriborsó, kókusztej, paradicsom, spenót, naan',
+            vacsora: '🐟 Lazac burgonyával – lazacfilé, újburgonya, kapor krémsajt szósz'
+        },
+        {
+            day: 19,
+            reggeli: '🥞 Teljes kiőrlésű palacsinta – tk. liszt, tojás, tej, áfonya, juhar szirup',
+            ebed:    '🥗 Quinoa bab saláta – quinoa, fehérbab, avokádó, paradicsom, lime dresszing',
+            vacsora: '🍗 Pesztós csirkemell – csirkemell, házi pesztó, koktélparadicsom, teljes kiőrlésű tészta'
+        },
+        {
+            day: 20,
+            reggeli: '🍊 Citrusos smoothie – narancs, grapefruit, gyömbér, sárgarépa, görög joghurt',
+            ebed:    '🌮 Garnélás taco – garnélarák, káposzta slaw, avokádó, lime, chili majonéz',
+            vacsora: '🥩 Töltött paprika – darált csirke, rizs, paradicsom szósz, pirospaprika'
+        },
+        {
+            day: 21,
+            reggeli: '🥣 Recovery zabkása – zabpehely, banán, mandulatej, chia mag, méz',
+            ebed:    '🍲 Zöldség minestrone – sárgarépa, zeller, paradicsom, spárga, bazsalikom',
+            vacsora: '🐟 Misós lazac – lazacfilé, miso pác, szezámos brokkolisaláta, rizs'
+        },
+        {
+            day: 22,
+            reggeli: '🍳 Fehérjés omlett – 4 tojásfehérje, spenót, gomba, feta sajt',
+            ebed:    '🥗 Sült zöldség saláta – padlizsán, cukkini, paprika, csirkemell, bulgur',
+            vacsora: '🍗 Teriyaki csirke – csirkemell, teriyaki szósz, brokkoli, barna rizs'
+        },
+        {
+            day: 23,
+            reggeli: '🌾 Granola házilag – zab, dió, mandula, kókusz, méz, sütve joghurttal',
+            ebed:    '🍜 Ramen leves – csirke alaplé, tojás, nori, bab csíra, spenót, teljes kiőrlésű tészta',
+            vacsora: '🐟 Grillezett tengeri sügér – sügérfilé, citrom, fokhagyma, párolt spenót'
+        },
+        {
+            day: 24,
+            reggeli: '🥑 Zöld protein smoothie – spenót, avokádó, banán, protein por, mandulatej',
+            ebed:    '🥙 Törökös csirkés pide – csirkemell, paradicsom, paprika, joghurt szósz',
+            vacsora: '🥩 Sertés tenderloin – sertésszűz, aszalt szilva szósz, párolt brokkoli, édesburgonya püré'
+        },
+        {
+            day: 25,
+            reggeli: '🍓 Eper-banán overnight oats – zab, eper, banán, chia mag, kókusztej',
+            ebed:    '🍲 Zöldséges lencse dahl – vörös lencse, kókusztej, paradicsom, curry, naan',
+            vacsora: '🐟 Sütőben sült lazac – lazac, citrom, kapri, olívabogyó, paradicsom, kuszkusz'
+        },
+        {
+            day: 26,
+            reggeli: '🥣 Meditációs reggeli – zabkása, goji bogyó, kendermag, méz, tea',
+            ebed:    '🥗 Buddha tál – barna rizs, avokádó, edamame, répa, uborka, szezámos dresszing',
+            vacsora: '🍗 Ginger csirke – csirkemell, friss gyömbér, fokhagyma, borsó, barna rizs'
+        },
+        {
+            day: 27,
+            reggeli: '🍳 Mexikói omlett – tojás, babpüré, avokádó, salsa, koriander',
+            ebed:    '🌯 Tonhalas pita – tonhal, paradicsom, uborka, salátalevél, citromos joghurt',
+            vacsora: '🥩 Bárány kofta – darált bárány, fűszerek, bulgur saláta, tzatziki'
+        },
+        {
+            day: 28,
+            reggeli: '🥞 Protein palacsinta – protein por, zabpehely, tojás, banán, bogyós gyümölcs',
+            ebed:    '🍲 Brokkoli krémleves – brokkoli, burgonya, tejszín, sajt, teljes kiőrlésű kenyér',
+            vacsora: '🐟 Grillezett tonhal – tonhalszelet, szójás gyömbér pác, édesburgonya, saláta'
+        },
+        {
+            day: 29,
+            reggeli: '🌾 Utolsó előtti erő zabkása – zabpehely, dió, aszalt gyümölcs, fahéj, banán',
+            ebed:    '🥗 Csirkés quinoa power bowl – csirkemell, quinoa, avokádó, tojás, feta, olíva',
+            vacsora: '🍗 Sült egész csirke – egész csirke, rozmaring, citrom, fokhagyma, sült zöldségek'
+        },
+        {
+            day: 30,
+            reggeli: '🏆 Bajnoki reggeli – 3 tojásos omlett, avokádó, teljes kiőrlésű pirítós, friss gyümölcs',
+            ebed:    '🎉 Ünnepi saláta – grillcsirke, quinoa, rukola, avokádó, dió, gránátalma, balzsamecet',
+            vacsora: '🥩 Ünneplős steak vacsora – bélszín steak, fokhagymás vajban, édesburgonya, grill zöldségek'
+        }
+    ];
+
     // ====== LOCAL STORAGE HELPERS ======
     const storage = {
         save: function (key, value) { localStorage.setItem(key, JSON.stringify(value)); },
@@ -141,6 +325,7 @@ window.app = (function () {
     function updateUI() {
         var dayIndex = Math.min(state.currentDay, 30) - 1;
         var workout  = workoutProgram[dayIndex];
+        var recipe   = recipeProgram[dayIndex];
         var progress = Math.round(((state.currentDay - 1) / 30) * 100);
 
         el.dayDisplay.textContent      = 'Nap ' + state.currentDay + ' / 30';
@@ -156,6 +341,14 @@ window.app = (function () {
                 '<p><strong>Nehézség:</strong> ' + workout.difficulty + '</p>' +
                 '<p><strong>Edzés:</strong></p>' +
                 '<p class="workout-exercises">' + workout.exercises + '</p>' +
+            '</div>' +
+            '<div class="recipe-section">' +
+                '<h3 class="recipe-title">🍽️ Mai étkezési terv</h3>' +
+                '<ul class="recipe-list">' +
+                    '<li><span class="recipe-label">Reggeli</span>' + recipe.reggeli + '</li>' +
+                    '<li><span class="recipe-label">Ebéd</span>' + recipe.ebed + '</li>' +
+                    '<li><span class="recipe-label">Vacsora</span>' + recipe.vacsora + '</li>' +
+                '</ul>' +
             '</div>';
     }
 
