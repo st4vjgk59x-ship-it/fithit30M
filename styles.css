@@ -496,6 +496,80 @@ button:focus-visible {
     outline-offset: -3px;
 }
 
+/* ============================================
+   Sports News Card
+   ============================================ */
+.news-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    color: var(--primary-color);
+}
+
+.news-list {
+    margin-bottom: 16px;
+}
+
+.news-loading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    padding: 12px 0;
+}
+
+.news-spinner {
+    border-color: rgba(74, 144, 226, 0.3);
+    border-top-color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.news-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-title {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.news-title:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.news-date {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.news-empty {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    padding: 12px 0;
+}
+
+.news-refresh-btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+}
+
 /* Print styles */
 @media print {
     body {

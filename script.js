@@ -61,7 +61,77 @@
         30: '<strong>🎉 Az utolsó nap – Gratulálunk!</strong><ul><li>10×10 fekvőtámasz</li><li>10×10 guggolás</li><li>10×10 hasizom</li><li>10 perc nyújtás és ünneplés!</li></ul>'
     };
 
-    // Main application logic
+    // Module to fetch and display sports news
+    const NewsModule = (function() {
+        const RSS_URL = 'https://feeds.bbci.co.uk/sport/rss.xml';
+        const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}&count=6`;
+        const DATE_FORMAT_OPTIONS = { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+
+        const escapeHtml = (str) => {
+            if (!str) return '';
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        };
+
+        const sanitizeUrl = (url) => {
+            if (!url || typeof url !== 'string') return '#';
+            const trimmed = url.trim();
+            return (trimmed.startsWith('https://') || trimmed.startsWith('http://')) ? trimmed : '#';
+        };
+
+        const render = (items) => {
+            const list = document.querySelector('#news-list');
+            if (!list) return;
+            list.setAttribute('aria-busy', 'false');
+            if (!items || items.length === 0) {
+                list.innerHTML = '<p class="news-empty">Jelenleg nem elérhetők sporthírek.</p>';
+                return;
+            }
+            list.innerHTML = items.map(item => {
+                const date = item.pubDate ? new Date(item.pubDate).toLocaleDateString('hu-HU', DATE_FORMAT_OPTIONS) : '';
+                const title = escapeHtml(item.title);
+                const link = sanitizeUrl(item.link);
+                return `<div class="news-item" role="listitem">
+                    <a class="news-title" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">${title}</a>
+                    ${date ? `<span class="news-date">${escapeHtml(date)}</span>` : ''}
+                </div>`;
+            }).join('');
+        };
+
+        const renderError = () => {
+            const list = document.querySelector('#news-list');
+            if (!list) return;
+            list.setAttribute('aria-busy', 'false');
+            list.innerHTML = '<p class="news-empty">Nem sikerült betölteni a híreket. Ellenőrizd az internetkapcsolatot.</p>';
+        };
+
+        const load = () => {
+            const list = document.querySelector('#news-list');
+            if (!list) return;
+            list.setAttribute('aria-busy', 'true');
+            list.innerHTML = '<div class="news-loading"><span class="loading-spinner news-spinner" aria-hidden="true"></span><span>Hírek betöltése...</span></div>';
+            fetch(API_URL)
+                .then(res => {
+                    if (!res.ok) throw new Error('Network error');
+                    return res.json();
+                })
+                .then(data => {
+                    if (data.status === 'ok' && Array.isArray(data.items)) {
+                        render(data.items);
+                    } else {
+                        renderError();
+                    }
+                })
+                .catch(() => renderError());
+        };
+
+        return { load };
+    })();
+
     const App = (function() {
         let userData = null;
         let currentDay = 1;
@@ -119,6 +189,7 @@
             document.querySelector('#main-app').hidden = false;
             displayCurrentDay();
             updateStats();
+            NewsModule.load();
         };
 
         const displayCurrentDay = () => {
@@ -180,7 +251,9 @@
             document.querySelector('#weight-error').textContent = '';
         };
 
-        return { init, nextDay, reset, logout };
+        const refreshNews = () => NewsModule.load();
+
+        return { init, nextDay, reset, logout, refreshNews };
     })();
 
     // Expose app globally for inline onclick handlers
