@@ -3,67 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitHit30M</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        :root { --p: #4A90E2; --bg: #F8FAFC; }
-        body { font-family: -apple-system, sans-serif; background: var(--bg); margin: 0; padding: 15px; }
-        .card { background: white; padding: 20px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .btn { width: 100%; padding: 15px; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; font-size: 16px; margin-top: 10px; background: var(--p); color: white; }
-        input { width: 100%; padding: 15px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; font-size: 16px; }
-        #main-app { display: none; }
-    </style>
+    <meta name="description" content="FitHit30M - 30 napos fitness program">
+    <meta name="theme-color" content="#4A90E2">
+    <title>FitHit30M - 30 Napos Fitness Program</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js" defer></script>
+    <!-- Fallback for Chart.js -->
+    <script>
+        if (!window.Chart) {
+            console.warn('Chart.js failed to load from CDN. Loading from backup...');
+            var script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js';
+            document.head.appendChild(script);
+        }
+    </script>
 </head>
 <body>
+    <main>
+        <!-- Registration Screen -->
+        <section id="auth-screen" class="card auth-container" role="region" aria-label="Regisztrációs képernyő">
+            <h1>FitHit30M 🚀</h1>
+            <p class="subtitle">30 napos fitness challenge</p>
+            
+            <form id="registration-form" novalidate>
+                <div class="form-group">
+                    <label for="name">Neved *</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name"
+                        placeholder="Írd be a neved"
+                        required
+                        aria-required="true"
+                        aria-describedby="name-error"
+                    >
+                    <span id="name-error" class="error-message" role="alert"></span>
+                </div>
 
-<div id="auth-screen" class="card">
-    <h2>FitHit30M Regisztráció 🚀</h2>
-    <input type="text" id="name" placeholder="Neved">
-    <input type="number" id="weight" placeholder="Súlyod (kg)">
-    <button class="btn" onclick="start()">Indítás!</button>
-</div>
+                <div class="form-group">
+                    <label for="weight">Súlyod (kg) *</label>
+                    <input 
+                        type="number" 
+                        id="weight" 
+                        name="weight"
+                        placeholder="pl. 75"
+                        min="20"
+                        max="300"
+                        required
+                        aria-required="true"
+                        aria-describedby="weight-error"
+                    >
+                    <span id="weight-error" class="error-message" role="alert"></span>
+                </div>
 
-<div id="main-app">
-    <div class="card" style="background: var(--p); color: white; text-align: center;">
-        <h1 id="day-display">Nap 1</h1>
-    </div>
-    <div class="card">
-        <h3>🏋️ Mai Edzés</h3>
-        <p id="workout"></p>
-        <button class="btn" onclick="nextDay()">Nap Kész ✅</button>
-    </div>
-</div>
+                <button type="submit" class="btn btn-primary" id="start-btn">
+                    <span class="btn-text">Indítás!</span>
+                    <span class="loading-spinner" id="loading-spinner" hidden aria-hidden="true"></span>
+                </button>
+            </form>
 
-<script>
-    const program = [
-        "20p HIIT: 30mp guggolás, 30mp pihenő (10x)",
-        "30p Intenzív séta + 5p nyújtás",
-        "15p Hasizom: Plank és Felülés",
-        "Pihenőnap! Sétálj egy nagyot.",
-        "25p Erősítés: Fekvőtámasz és Kitörés"
-    ];
+            <p class="form-hint">* Kötelező mezők</p>
+        </section>
 
-    function start() {
-        const n = document.getElementById('name').value;
-        const w = document.getElementById('weight').value;
-        if(!n || !w) return alert("Kérlek töltsd ki!");
-        document.getElementById('auth-screen').style.display = 'none';
-        document.getElementById('main-app').style.display = 'block';
-        updateUI();
-    }
+        <!-- Main Application -->
+        <section id="main-app" class="main-app" hidden role="region" aria-label="Főalkalmazás">
+            <!-- Day Display Header -->
+            <header class="card card-header" role="banner">
+                <h1 id="day-display">Nap 1 / 30</h1>
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+                </div>
+                <p id="user-greeting" class="user-greeting"></p>
+            </header>
 
-    let currentDay = 1;
-    function updateUI() {
-        document.getElementById('day-display').innerText = "Nap " + currentDay + " / 30";
-        document.getElementById('workout').innerText = program[(currentDay-1) % program.length];
-    }
+            <!-- Workout Card -->
+            <article class="card workout-card">
+                <h2>🏋️ Mai Edzés</h2>
+                <div id="workout" class="workout-content" role="main"></div>
+                
+                <div class="button-group">
+                    <button class="btn btn-primary" id="next-day-btn" onclick="app.nextDay()">
+                        Nap Kész ✅
+                    </button>
+                    <button class="btn btn-secondary" id="reset-btn" onclick="app.reset()">
+                        Újrakezdés
+                    </button>
+                </div>
+            </article>
 
-    function nextDay() {
-        currentDay++;
-        updateUI();
-        window.scrollTo(0,0);
-    }
-</script>
+            <!-- Progress Summary -->
+            <article class="card stats-card">
+                <h3>📊 Haladás</h3>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <span class="stat-value" id="completed-days">0</span>
+                        <span class="stat-label">Nap befejezve</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="remaining-days">30</span>
+                        <span class="stat-label">Nap hátra</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- User Info Footer -->
+            <footer class="card user-info-card">
+                <div class="user-info">
+                    <p><strong>Felhasználó:</strong> <span id="display-name"></span></p>
+                    <p><strong>Kezdeti súly:</strong> <span id="display-weight"></span> kg</p>
+                </div>
+                <button class="btn btn-outline" id="logout-btn" onclick="app.logout()">
+                    Kijelentkezés
+                </button>
+            </footer>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
