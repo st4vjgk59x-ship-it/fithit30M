@@ -317,10 +317,7 @@ input[type="number"]:valid:not(:placeholder-shown) {
     line-height: 1.8;
     color: var(--text-primary);
     min-height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    text-align: left;
 }
 
 .button-group {
@@ -331,6 +328,106 @@ input[type="number"]:valid:not(:placeholder-shown) {
 
 .button-group .btn {
     margin-top: 0;
+}
+
+/* ============================================
+   Lidl Weekly Offer Card
+   ============================================ */
+.lidl-card {
+    border-top: 4px solid #F5D800;
+}
+
+.lidl-card h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #003882;
+    margin-bottom: 4px;
+}
+
+.lidl-week-info {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+}
+
+.lidl-offer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.lidl-offer-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-light);
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid #F5D800;
+    font-size: 0.92rem;
+}
+
+.lidl-item-name {
+    color: var(--text-primary);
+}
+
+.lidl-item-price {
+    font-weight: 700;
+    color: #003882;
+    white-space: nowrap;
+    margin-left: 12px;
+}
+
+.lidl-hint {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* ============================================
+   Recipe Section
+   ============================================ */
+.recipe-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid var(--border-color);
+}
+
+.recipe-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.recipe-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.recipe-list li {
+    background-color: var(--bg-white);
+    border-left: 4px solid var(--primary-color);
+    padding: 10px 14px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.recipe-label {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-right: 6px;
+    min-width: 56px;
+}
+
+.recipe-label::after {
+    content: ':';
 }
 
 /* ============================================
