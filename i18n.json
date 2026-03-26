@@ -1,0 +1,14 @@
+{
+  "hu": {
+    "welcome": "Üdvözöljük a FitHit30M alkalmazásban!",
+    "logout": "Kijelentkezés",
+    "profile": "Profil",
+    "settings": "Beállítások"
+  },
+  "en": {
+    "welcome": "Welcome to the FitHit30M application!",
+    "logout": "Logout",
+    "profile": "Profile",
+    "settings": "Settings"
+  }
+}
