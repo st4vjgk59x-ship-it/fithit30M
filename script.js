@@ -2,154 +2,154 @@
 
 const MEALS = [
     {
-        reggeli: { nev: 'Zablisztes smoothie tál', hozzavalok: '50g zabpehely, 1 banán, 150ml mandulatej, 1 ek. méz', elkeszites: 'Turmixold össze a banánt a mandulaterrel és a mézzel, öntsd a zabpehelyre, tálald.' },
-        ebed: { nev: 'Csirke quinoa saláta', hozzavalok: '150g csirkemell, 80g quinoa, paradicsom, uborka, citromlé, olívaolaj', elkeszites: 'Főzd meg a quinoát. A csirkét süsd meg, szeleteld fel. Keverd össze friss zöldségekkel, locsold meg olívaolajjal és citromlével.' },
-        vacsora: { nev: 'Lazac párolt brokkolival', hozzavalok: '180g lazacfilé, 200g brokkoli, fokhagyma, olívaolaj, só, bors', elkeszites: 'A lazacot olívaolajban süsd 3-4 percig mindkét oldalon. A brokkolit párolj 5 percig. Tálald együtt.' }
+        reggeli: { nev: 'Oatmeal Smoothie Bowl', hozzavalok: '50g rolled oats, 1 banana, 150ml almond milk, 1 tbsp honey', elkeszites: 'Blend the banana with almond milk and honey, pour over the oats and serve.' },
+        ebed: { nev: 'Chicken Quinoa Salad', hozzavalok: '150g chicken breast, 80g quinoa, tomato, cucumber, lemon juice, olive oil', elkeszites: 'Cook the quinoa. Grill the chicken and slice it. Mix with fresh vegetables, drizzle with olive oil and lemon juice.' },
+        vacsora: { nev: 'Salmon with Steamed Broccoli', hozzavalok: '180g salmon fillet, 200g broccoli, garlic, olive oil, salt, pepper', elkeszites: 'Pan-fry the salmon in olive oil 3-4 minutes per side. Steam the broccoli for 5 minutes. Serve together.' }
     },
     {
-        reggeli: { nev: 'Fehérjés rántotta', hozzavalok: '3 tojás, 1 marék spenót, fél paprika, só, bors, kevés olívaolaj', elkeszites: 'Felvert tojáshoz add a spenótot és a felkockázott paprikát, süsd meg kevés olajon.' },
-        ebed: { nev: 'Lencse krémleves', hozzavalok: '200g vörös lencse, 1 hagyma, 1 sárgarépa, 1 tk. kurkuma, vegetáriánus alaplé', elkeszites: 'Párold meg a hagymát, add hozzá a lencsét, répát és fűszereket. Főzd puhára, turmixold simára.' },
-        vacsora: { nev: 'Pulykás cukkini csónak', hozzavalok: '2 cukkini, 200g darált pulyka, paradicsomos szósz, sajt, fűszerek', elkeszites: 'Vájd ki a cukkinit. Töltsd meg fűszeres darált pulykával, öntsd rá a szószt. Süsd 25 percig 180°C-on.' }
+        reggeli: { nev: 'Protein Scrambled Eggs', hozzavalok: '3 eggs, 1 handful spinach, half bell pepper, salt, pepper, a little olive oil', elkeszites: 'Beat the eggs, add spinach and diced pepper, cook in a little oil.' },
+        ebed: { nev: 'Red Lentil Soup', hozzavalok: '200g red lentils, 1 onion, 1 carrot, 1 tsp turmeric, vegetable stock', elkeszites: 'Sauté the onion, add lentils, carrot and spices. Cook until soft, then blend smooth.' },
+        vacsora: { nev: 'Turkey-Stuffed Zucchini Boats', hozzavalok: '2 zucchini, 200g ground turkey, tomato sauce, cheese, spices', elkeszites: 'Hollow out the zucchini. Fill with seasoned ground turkey, top with sauce. Bake 25 minutes at 180°C.' }
     },
     {
-        reggeli: { nev: 'Görög joghurtos parfé', hozzavalok: '200g görög joghurt, 30g granola, 1 marék áfonya, 1 tk. méz', elkeszites: 'Rétegezd a joghurtot, granolát és bogyós gyümölcsöt, locsold meg mézzel.' },
-        ebed: { nev: 'Tonhalas teljes kiőrlésű szendvics', hozzavalok: '2 szelet teljes kiőrlésű kenyér, 1 doboz tonhal, 1 ek. joghurtos majonéz, salátalevél, paradicsom', elkeszites: 'Keverd össze a tonhalat a joghurtos majonézzel, töltsd a kenyér közé a salátával és paradicsommal.' },
-        vacsora: { nev: 'Zöldséges csirkepörkölt', hozzavalok: '200g csirkemell, 1 paprika, 1 paradicsom, 1 hagyma, 1 tk. pirospaprika, alaplé', elkeszites: 'Párold meg a hagymát, add hozzá a csirkét és a zöldségeket. Fűszerezd, önts rá alaplevet, főzd 20 percig.' }
+        reggeli: { nev: 'Greek Yogurt Parfait', hozzavalok: '200g Greek yogurt, 30g granola, 1 handful blueberries, 1 tsp honey', elkeszites: 'Layer the yogurt, granola and berries, drizzle with honey.' },
+        ebed: { nev: 'Tuna Whole-Grain Sandwich', hozzavalok: '2 slices whole-grain bread, 1 can tuna, 1 tbsp yogurt mayo, lettuce, tomato', elkeszites: 'Mix the tuna with yogurt mayo, fill the bread with lettuce and tomato.' },
+        vacsora: { nev: 'Chicken and Vegetable Stew', hozzavalok: '200g chicken breast, 1 bell pepper, 1 tomato, 1 onion, 1 tsp paprika, stock', elkeszites: 'Sauté the onion, add chicken and vegetables. Season, pour in stock, cook 20 minutes.' }
     },
     {
-        reggeli: { nev: 'Banános zabkása', hozzavalok: '60g zabpehely, 300ml tej, 1 banán, 1 ek. dióvaj, fahéj', elkeszites: 'Főzd fel a zabot a tejben. Keverd bele a felszeletelt banánt, dióvajat és fahéjt.' },
-        ebed: { nev: 'Csicseriborsós saláta', hozzavalok: '200g csicseriborsó (konzervből), paradicsom, uborka, vöröshagyma, petrezselyem, citromdresszleg', elkeszites: 'Keverd össze az összes alapanyagot, locsold meg a citromdresszelgel.' },
-        vacsora: { nev: 'Grillezett csirkemell édesburgonya-pürével', hozzavalok: '200g csirkemell, 2 édesburgonya, vaj, só, bors, rozmaringos', elkeszites: 'Grillezd a csirkét 5-6 percig oldalanként. Főzd meg az édesburgonyát, törd pürévé vajjal és sóval.' }
+        reggeli: { nev: 'Banana Oatmeal', hozzavalok: '60g rolled oats, 300ml milk, 1 banana, 1 tbsp almond butter, cinnamon', elkeszites: 'Cook the oats in milk. Stir in sliced banana, almond butter and cinnamon.' },
+        ebed: { nev: 'Chickpea Salad', hozzavalok: '200g chickpeas (canned), tomato, cucumber, red onion, parsley, lemon dressing', elkeszites: 'Toss all ingredients together and drizzle with lemon dressing.' },
+        vacsora: { nev: 'Grilled Chicken Breast with Sweet Potato Mash', hozzavalok: '200g chicken breast, 2 sweet potatoes, butter, salt, pepper, rosemary', elkeszites: 'Grill the chicken 5-6 minutes per side. Boil sweet potatoes and mash with butter and salt.' }
     },
     {
-        reggeli: { nev: 'Avokádós pirítós tojással', hozzavalok: '2 szelet teljes kiőrlésű kenyér, 1 avokádó, 2 tojás, só, bors, citromlé', elkeszites: 'Pirítsd meg a kenyeret. Pürésítsd az avokádót citromlével. Süss tükör- vagy buggyantott tojást. Tedd a kenyérre.' },
-        ebed: { nev: 'Wok csirke zöldségekkel', hozzavalok: '150g csirkemell, brokkoli, sárgarépa, paprika, szójaszósz, gyömbér, fokhagyma', elkeszites: 'Magas hőn süsd át a csirkét és a zöldségeket. Adj hozzá szójaszószt, gyömbért és fokhagymát.' },
-        vacsora: { nev: 'Tepsis lazac zöldségekkel', hozzavalok: '180g lazac, spárga, csersznyeparadicsom, olívaolaj, fokhagyma, citrom', elkeszites: 'Tedd a tepsire a lazacot és a zöldségeket, locsold meg olívaolajjal. Süsd 200°C-on 18 percig.' }
+        reggeli: { nev: 'Avocado Toast with Eggs', hozzavalok: '2 slices whole-grain bread, 1 avocado, 2 eggs, salt, pepper, lemon juice', elkeszites: 'Toast the bread. Mash avocado with lemon juice. Fry or poach eggs. Place on top of toast.' },
+        ebed: { nev: 'Chicken Vegetable Stir-Fry', hozzavalok: '150g chicken breast, broccoli, carrot, bell pepper, soy sauce, ginger, garlic', elkeszites: 'Stir-fry the chicken and vegetables on high heat. Add soy sauce, ginger and garlic.' },
+        vacsora: { nev: 'Sheet-Pan Salmon with Vegetables', hozzavalok: '180g salmon, asparagus, cherry tomatoes, olive oil, garlic, lemon', elkeszites: 'Place salmon and vegetables on a baking sheet, drizzle with olive oil. Bake at 200°C for 18 minutes.' }
     },
     {
-        reggeli: { nev: 'Gyümölcsös chia puding', hozzavalok: '3 ek. chia mag, 250ml mandulatej, 1 ek. méz, szezonális gyümölcsök', elkeszites: 'Keverd el a chia magot a mandulaterrel és mézzel. Tedd hűtőbe éjszakára. Reggel tedd rá a gyümölcsöket.' },
-        ebed: { nev: 'Tojásos zöldség rizottó', hozzavalok: '80g barna rizs, 2 tojás, cukkini, sárgarépa, hagyma, zöldséges alaplé', elkeszites: 'Párold meg a rizst alaplével. Wokban süsd meg a zöldségeket, keverd bele a főtt rizst és a tojást.' },
-        vacsora: { nev: 'Sültpaprikás húsgolyók', hozzavalok: '250g darált csirke, 1 tojás, fokhagyma, petrezselyem, paprika szósz', elkeszites: 'Gyúrd össze a darált húst a tojással és fűszerekkel, formázz golyókat. Süsd meg, tálald paprika szósszal.' }
+        reggeli: { nev: 'Fruit Chia Pudding', hozzavalok: '3 tbsp chia seeds, 250ml almond milk, 1 tbsp honey, seasonal fruit', elkeszites: 'Mix chia seeds with almond milk and honey. Refrigerate overnight. Top with fruit in the morning.' },
+        ebed: { nev: 'Egg and Vegetable Rice Bowl', hozzavalok: '80g brown rice, 2 eggs, zucchini, carrot, onion, vegetable stock', elkeszites: 'Cook the rice with stock. Stir-fry the vegetables in a wok, stir in cooked rice and eggs.' },
+        vacsora: { nev: 'Baked Chicken Meatballs with Pepper Sauce', hozzavalok: '250g ground chicken, 1 egg, garlic, parsley, bell pepper sauce', elkeszites: 'Mix ground chicken with egg and spices, shape into balls. Bake and serve with pepper sauce.' }
     },
     {
-        reggeli: { nev: 'Fehérjés palacsinta', hozzavalok: '2 tojás, 1 banán, 1 adadag fehérjepor (vanília), kis mennyiségű olaj', elkeszites: 'Turmixold össze az összetevőket. Süss kis palacsinát kevés olajon mindkét oldalon.' },
-        ebed: { nev: 'Zöldséges csirke leves', hozzavalok: '150g csirkemell, sárgarépa, zeller, petrezselyemgyökér, gyöngyös pasta, só, bors', elkeszites: 'Főzd meg a csirkét és a zöldségeket alaplében. Add hozzá a tésztát, főzd 8 percig.' },
-        vacsora: { nev: 'Sütőben sült csiperkegomba quinoával', hozzavalok: '200g csiperkegomba, 80g quinoa, fokhagyma, petrezselyem, olívaolaj', elkeszites: 'Süsd a gombát 200°C-on 15 percig. Főzd meg a quinoát. Tálald együtt, szórj rá petrezselymet.' }
+        reggeli: { nev: 'Protein Pancakes', hozzavalok: '2 eggs, 1 banana, 1 scoop vanilla protein powder, a little oil', elkeszites: 'Blend all ingredients together. Cook small pancakes in a little oil on both sides.' },
+        ebed: { nev: 'Chicken Vegetable Soup', hozzavalok: '150g chicken breast, carrot, celery, parsley root, small pasta, salt, pepper', elkeszites: 'Cook chicken and vegetables in stock. Add pasta, cook 8 minutes.' },
+        vacsora: { nev: 'Baked Mushrooms with Quinoa', hozzavalok: '200g button mushrooms, 80g quinoa, garlic, parsley, olive oil', elkeszites: 'Roast mushrooms at 200°C for 15 minutes. Cook quinoa. Serve together, sprinkled with parsley.' }
     },
     {
-        reggeli: { nev: 'Mandulavájas rizskása', hozzavalok: '60g barna rizs, 300ml tejszín, 1 ek. mandulavaj, banán, fahéj', elkeszites: 'Főzd meg a rizst tejjel. Add hozzá a mandulavajat és a fahéjt. Tálald felszeletelt banánnal.' },
-        ebed: { nev: 'Mediterrán tonhalas saláta', hozzavalok: '1 doboz tonhal, olívabogyó, paradicsom, feta sajt, vegyes salátalevél, olívaolaj, citromlé', elkeszites: 'Keverd össze az összetevőket, öntsd rá az olívaolajat és citromlevet.' },
-        vacsora: { nev: 'Csirkefalatok édes chili szósszal', hozzavalok: '200g csirkemell, keményítő, tojás, édes chili szósz, citromlé', elkeszites: 'Paníroz a csirkét keményítőben, süsd ki ropogósra. Tálald édes chili szósszal.' }
+        reggeli: { nev: 'Almond Butter Rice Porridge', hozzavalok: '60g brown rice, 300ml milk, 1 tbsp almond butter, banana, cinnamon', elkeszites: 'Cook the rice in milk. Stir in almond butter and cinnamon. Serve with sliced banana.' },
+        ebed: { nev: 'Mediterranean Tuna Salad', hozzavalok: '1 can tuna, olives, tomato, feta cheese, mixed salad leaves, olive oil, lemon juice', elkeszites: 'Combine all ingredients, drizzle with olive oil and lemon juice.' },
+        vacsora: { nev: 'Crispy Chicken Bites with Sweet Chili Sauce', hozzavalok: '200g chicken breast, cornstarch, egg, sweet chili sauce, lemon juice', elkeszites: 'Coat chicken in cornstarch, fry until crispy. Serve with sweet chili sauce.' }
     },
     {
-        reggeli: { nev: 'Bogyós smoothie tál', hozzavalok: '100g fagyasztott vegyes bogyós gyümölcs, 150g görög joghurt, 30g granola, 1 ek. lenmag', elkeszites: 'Turmixold a joghurtot a bogyós gyümölccsel. Öntsd tálba, szórd meg granolával és lenmaggal.' },
-        ebed: { nev: 'Currys vörös lencse dahl', hozzavalok: '200g vörös lencse, kókusztej, paradicsom, curry por, kurkuma, fokhagyma, gyömbér', elkeszites: 'Párold meg a fokhagymát és gyömbért. Add hozzá a fűszereket, lencsét, paradicsomot és kókusztejet. Főzd 20 percig.' },
-        vacsora: { nev: 'Grillezett csirkemell párolt zöldségekkel', hozzavalok: '200g csirkemell, cukkini, paprika, hagyma, balzsamecet, olívaolaj', elkeszites: 'Grillezd a csirkét. A zöldségeket süsd forró serpenyőben. Locsold meg balzsamecettel.' }
+        reggeli: { nev: 'Berry Smoothie Bowl', hozzavalok: '100g frozen mixed berries, 150g Greek yogurt, 30g granola, 1 tbsp flaxseed', elkeszites: 'Blend yogurt with berries. Pour into bowl, top with granola and flaxseed.' },
+        ebed: { nev: 'Red Lentil Dahl', hozzavalok: '200g red lentils, coconut milk, tomato, curry powder, turmeric, garlic, ginger', elkeszites: 'Sauté garlic and ginger. Add spices, lentils, tomato and coconut milk. Cook 20 minutes.' },
+        vacsora: { nev: 'Grilled Chicken with Sautéed Vegetables', hozzavalok: '200g chicken breast, zucchini, bell pepper, onion, balsamic vinegar, olive oil', elkeszites: 'Grill the chicken. Sauté vegetables in a hot pan. Drizzle with balsamic vinegar.' }
     },
     {
-        reggeli: { nev: 'Zöldséges tojáslepény', hozzavalok: '3 tojás, 1 marék spenót, gomba, paradicsom, reszelt sajt, só, bors', elkeszites: 'Verd fel a tojásokat, add hozzá a zöldségeket. Süsd serpenyőben 3-4 percig, hajtsd össze.' },
-        ebed: { nev: 'Barna rizses csirkés tál', hozzavalok: '150g csirkemell, 80g barna rizs, avokádó, uborka, szójaszósz, szezámmag', elkeszites: 'Főzd meg a rizst. Süsd meg a csirkét. Tálald az összetevőkkel, locsold meg szójaszósszal.' },
-        vacsora: { nev: 'Paradicsomos lazac teljes kiőrlésű pasta', hozzavalok: '180g lazac, 80g teljes kiőrlésű tészta, paradicsom szósz, kapribogyó, olívabogyó', elkeszites: 'Főzd meg a tésztát. A lazacot süsd meg, tord villával. Keverd össze a szósszal és tedd rá a tésztára.' }
+        reggeli: { nev: 'Vegetable Omelette', hozzavalok: '3 eggs, 1 handful spinach, mushrooms, tomato, shredded cheese, salt, pepper', elkeszites: 'Beat eggs, add vegetables. Cook in a pan 3-4 minutes, fold over.' },
+        ebed: { nev: 'Brown Rice Chicken Bowl', hozzavalok: '150g chicken breast, 80g brown rice, avocado, cucumber, soy sauce, sesame seeds', elkeszites: 'Cook rice. Grill chicken. Arrange in a bowl with toppings, drizzle with soy sauce.' },
+        vacsora: { nev: 'Salmon Pasta with Tomato Sauce', hozzavalok: '180g salmon, 80g whole-grain pasta, tomato sauce, capers, olives', elkeszites: 'Cook pasta. Pan-fry salmon and flake with a fork. Mix with sauce and toss with pasta.' }
     },
     {
-        reggeli: { nev: 'Tejfölös zabpehely gyümölccsel', hozzavalok: '60g zabpehely, 200ml tej, 100g görög joghurt, eper, kiwi, 1 tk. méz', elkeszites: 'Áztasd a zabot tejben éjszakára. Reggel keverd hozzá a joghurtot, tedd rá a gyümölcsöket és a mézet.' },
-        ebed: { nev: 'Fekete bab saláta', hozzavalok: '200g fekete bab (konzerv), kukorica, avokádó, paradicsom, koriander, lime, olívaolaj', elkeszites: 'Keverd össze az összetevőket. Locsold meg lime-lével és olívaolajjal.' },
-        vacsora: { nev: 'Sertésszűz sült burgonyával', hozzavalok: '200g sertésszűz, 2 burgonya, fokhagyma, rozmaring, olívaolaj', elkeszites: 'A burgonyát kockázd fel, süsd 200°C-on 30 percig. A húst süsd serpenyőben 4 percig oldalanként.' }
+        reggeli: { nev: 'Overnight Oats with Fruit', hozzavalok: '60g rolled oats, 200ml milk, 100g Greek yogurt, strawberries, kiwi, 1 tsp honey', elkeszites: 'Soak oats in milk overnight. In the morning stir in yogurt, top with fruit and honey.' },
+        ebed: { nev: 'Black Bean Salad', hozzavalok: '200g black beans (canned), corn, avocado, tomato, cilantro, lime, olive oil', elkeszites: 'Toss all ingredients together. Drizzle with lime juice and olive oil.' },
+        vacsora: { nev: 'Pork Tenderloin with Roasted Potatoes', hozzavalok: '200g pork tenderloin, 2 potatoes, garlic, rosemary, olive oil', elkeszites: 'Cut potatoes into cubes, roast at 200°C for 30 minutes. Pan-sear pork 4 minutes per side.' }
     },
     {
-        reggeli: { nev: 'Dióvajjal gazdagított banán pirítós', hozzavalok: '2 szelet teljes kiőrlésű kenyér, 2 ek. dióvaj, 1 banán, fahéj', elkeszites: 'Pirítsd meg a kenyeret. Kend meg dióvajjal, tedd rá a felszeletelt banánt és szórd meg fahéjjal.' },
-        ebed: { nev: 'Csirkés caesar saláta', hozzavalok: '150g grillezett csirkemell, rómaisaláta, parmezán, teljes kiőrlésű kruton, caesar öntet', elkeszites: 'Szeletelj a csirkét, tépd fel a salátát. Keverd össze az összetevőket, locsold meg caesar öntettel.' },
-        vacsora: { nev: 'Brokkolival töltött csirke', hozzavalok: '2 csirkemellfilé, 100g főtt brokkoli, reszelt sajt, fokhagyma, só, bors', elkeszites: 'Vágd be a csirkét, töltsd meg brokkolival és sajttal. Süsd 200°C-on 25 percig.' }
+        reggeli: { nev: 'Almond Butter Banana Toast', hozzavalok: '2 slices whole-grain bread, 2 tbsp almond butter, 1 banana, cinnamon', elkeszites: 'Toast the bread. Spread almond butter, top with sliced banana and sprinkle with cinnamon.' },
+        ebed: { nev: 'Chicken Caesar Salad', hozzavalok: '150g grilled chicken breast, romaine lettuce, parmesan, whole-grain croutons, Caesar dressing', elkeszites: 'Slice chicken, tear lettuce. Toss together with toppings and drizzle with Caesar dressing.' },
+        vacsora: { nev: 'Broccoli-Stuffed Chicken', hozzavalok: '2 chicken breast fillets, 100g cooked broccoli, shredded cheese, garlic, salt, pepper', elkeszites: 'Butterfly the chicken, stuff with broccoli and cheese. Bake at 200°C for 25 minutes.' }
     },
     {
-        reggeli: { nev: 'Mandarinos görög joghurt', hozzavalok: '200g görög joghurt, 2 mandarin, 30g dió, 1 ek. méz', elkeszites: 'Tedd a joghurtot tálba, szeld fel a mandarint. Szórd rá a diót és a mézet.' },
-        ebed: { nev: 'Zöldséges minestrone leves', hozzavalok: 'Fehér bab, paradicsom, cukkini, sárgarépa, teljes kiőrlésű pasta, hagyma, fokhagyma, bazsalikom', elkeszites: 'Párold meg a hagymát, add hozzá a zöldségeket. Önts rá alaplevet, főzd 15 percig. Add a tésztát.' },
-        vacsora: { nev: 'Lazacburger teljes kiőrlésű zsömlében', hozzavalok: '150g lazac, 1 tojás, kapor, citrom, teljes kiőrlésű zsemle, saláta', elkeszites: 'Keverd el a lazacot tojással és kaporral. Formázz pogácsákat, süsd meg. Tálald zsömlében salátával.' }
+        reggeli: { nev: 'Mandarin Greek Yogurt Bowl', hozzavalok: '200g Greek yogurt, 2 mandarins, 30g walnuts, 1 tbsp honey', elkeszites: 'Place yogurt in a bowl, add mandarin segments. Top with walnuts and honey.' },
+        ebed: { nev: 'Vegetable Minestrone Soup', hozzavalok: 'white beans, tomato, zucchini, carrot, whole-grain pasta, onion, garlic, basil', elkeszites: 'Sauté onion, add vegetables. Pour in stock, cook 15 minutes. Add pasta and cook until tender.' },
+        vacsora: { nev: 'Salmon Burger on Whole-Grain Bun', hozzavalok: '150g salmon, 1 egg, dill, lemon, whole-grain bun, lettuce', elkeszites: 'Mix salmon with egg and dill. Shape into patties, pan-fry. Serve in bun with lettuce.' }
     },
     {
-        reggeli: { nev: 'Fehérje omlett paprikával', hozzavalok: '4 tojásfehérje, 1 tojás, piros paprika, hagyma, só, bors, olívaolaj', elkeszites: 'Verd fel a tojásokat. Add hozzá a felkockázott paprikát és hagymát. Süsd meg kevés olajon.' },
-        ebed: { nev: 'Quinoás vegán tál', hozzavalok: '80g quinoa, sült édesburgonya, fekete bab, avokádó, lime, koriander', elkeszites: 'Főzd a quinoát. Süsd az édesburgonyát kockákra vágva. Rendezd el tálban az összes alapanyagot.' },
-        vacsora: { nev: 'Csirkemell édesburgonyával', hozzavalok: '200g csirkemell, 1 édesburgonya, paprika, só, bors, olívaolaj, rozmaring', elkeszites: 'Tepsiben süsd a csirkét és az édesburgonyát együtt 200°C-on 30 percig.' }
+        reggeli: { nev: 'Egg White Omelette with Bell Pepper', hozzavalok: '4 egg whites, 1 whole egg, red bell pepper, onion, salt, pepper, olive oil', elkeszites: 'Beat eggs. Add diced pepper and onion. Cook in a little oil until set.' },
+        ebed: { nev: 'Vegan Quinoa Bowl', hozzavalok: '80g quinoa, roasted sweet potato, black beans, avocado, lime, cilantro', elkeszites: 'Cook quinoa. Roast sweet potato in cubes. Arrange all ingredients in a bowl.' },
+        vacsora: { nev: 'Chicken Breast with Sweet Potato', hozzavalok: '200g chicken breast, 1 sweet potato, paprika, salt, pepper, olive oil, rosemary', elkeszites: 'Roast chicken and sweet potato together in a baking dish at 200°C for 30 minutes.' }
     },
     {
-        reggeli: { nev: 'Lenmag-pudingos reggeli', hozzavalok: '3 ek. lenmag, 250ml mandulatej, 1 ek. méz, friss gyümölcsök', elkeszites: 'Keverd el a lenmagot a mandulaterrel és mézzel. Hagyj állni 10 percet. Tedd rá a gyümölcsöket.' },
-        ebed: { nev: 'Mediterrán csirke saláta', hozzavalok: '150g csirkemell, vegyes salátalevél, feta, olívabogyó, paradicsom, olívaolaj, oregano', elkeszites: 'Süsd meg a csirkét, szeletelsd fel. Keverj össze salátát és tedd rá a csirkét és fetát.' },
-        vacsora: { nev: 'Töltött paprika darált csirkével', hozzavalok: '4 paprika, 250g darált csirke, 80g rizs, paradicsom szósz, hagyma, fűszerek', elkeszites: 'Főzd meg félig a rizst. Keverd el a darált csirkével. Töltsd a paprikába, önts rá szószt. Süsd 30 percig.' }
+        reggeli: { nev: 'Flaxseed Pudding with Fresh Fruit', hozzavalok: '3 tbsp ground flaxseed, 250ml almond milk, 1 tbsp honey, fresh fruit', elkeszites: 'Stir flaxseed into almond milk with honey. Let sit 10 minutes. Top with fresh fruit.' },
+        ebed: { nev: 'Mediterranean Chicken Salad', hozzavalok: '150g chicken breast, mixed salad leaves, feta, olives, tomato, olive oil, oregano', elkeszites: 'Grill chicken and slice. Toss salad and top with chicken and feta.' },
+        vacsora: { nev: 'Stuffed Peppers with Ground Chicken', hozzavalok: '4 bell peppers, 250g ground chicken, 80g rice, tomato sauce, onion, spices', elkeszites: 'Par-cook rice. Mix with ground chicken. Fill peppers, pour sauce over. Bake 30 minutes.' }
     },
     {
-        reggeli: { nev: 'Cukkinifánk tojással', hozzavalok: '1 cukkini (reszelve), 2 tojás, 2 ek. zabpehely, só, bors, fokhagyma', elkeszites: 'Nyomkod ki a cukkinit, keverd össze a tojással és zabpehellyel. Süss kis fánkokat serpenyőben.' },
-        ebed: { nev: 'Spenótos csirke pasta', hozzavalok: '150g csirkemell, 80g teljes kiőrlésű tészta, 2 marék spenót, fokhagyma, krémsajt, só, bors', elkeszites: 'Főzd meg a tésztát. Süsd meg a csirkét fokhagymával. Add hozzá a spenótot és a krémsajtot.' },
-        vacsora: { nev: 'Halfilé párolt zöldségekkel', hozzavalok: '200g fehér halfilé, brokkoli, sárgarépa, citromlé, olívaolaj, petrezselyem', elkeszites: 'Süsd meg a halat serpenyőben 3 percig oldalanként. Párold meg a zöldségeket. Locsold meg citromlével.' }
+        reggeli: { nev: 'Zucchini Fritters with Eggs', hozzavalok: '1 zucchini (grated), 2 eggs, 2 tbsp rolled oats, salt, pepper, garlic', elkeszites: 'Squeeze moisture from zucchini, mix with eggs and oats. Fry small fritters in a pan.' },
+        ebed: { nev: 'Spinach Chicken Pasta', hozzavalok: '150g chicken breast, 80g whole-grain pasta, 2 handfuls spinach, garlic, cream cheese, salt, pepper', elkeszites: 'Cook pasta. Sauté chicken with garlic. Add spinach and cream cheese.' },
+        vacsora: { nev: 'White Fish Fillet with Steamed Vegetables', hozzavalok: '200g white fish fillet, broccoli, carrot, lemon juice, olive oil, parsley', elkeszites: 'Pan-fry fish 3 minutes per side. Steam vegetables. Drizzle with lemon juice.' }
     },
     {
-        reggeli: { nev: 'Áfonyás görög joghurt pirítóssal', hozzavalok: '200g görög joghurt, 80g áfonya, 1 szelet teljes kiőrlésű kenyér, 1 tk. méz', elkeszites: 'Pirítsd meg a kenyeret. Tedd ki tálba a joghurtot, szórd rá az áfonyát és a mézet. Fogyaszd a pirítóssal.' },
-        ebed: { nev: 'Tex-Mex csirke saláta', hozzavalok: '150g csirkemell, fekete bab, kukorica, avokádó, lime, koriander, tortilla chips', elkeszites: 'Süsd meg a csirkét fűszeresen. Keverd össze az alapanyagokat. Tálald tortilla chippsel.' },
-        vacsora: { nev: 'Párolt csirke gombás szósszal', hozzavalok: '200g csirkemell, 200g csiperkegomba, fokhagyma, tejszín, só, bors, petrezselyem', elkeszites: 'Süsd meg a csirkét. A gombát fokhagymával párold meg. Add hozzá a tejszínt, fűszerezd. Tálald a csirkével.' }
+        reggeli: { nev: 'Greek Yogurt with Blueberries and Toast', hozzavalok: '200g Greek yogurt, 80g blueberries, 1 slice whole-grain bread, 1 tsp honey', elkeszites: 'Toast the bread. Spoon yogurt into a bowl, top with blueberries and honey. Enjoy with toast.' },
+        ebed: { nev: 'Tex-Mex Chicken Salad', hozzavalok: '150g chicken breast, black beans, corn, avocado, lime, cilantro, tortilla chips', elkeszites: 'Season and grill the chicken. Toss with other ingredients. Serve with tortilla chips.' },
+        vacsora: { nev: 'Chicken with Mushroom Sauce', hozzavalok: '200g chicken breast, 200g button mushrooms, garlic, cream, salt, pepper, parsley', elkeszites: 'Sear chicken. Sauté mushrooms with garlic. Add cream, season. Serve over chicken.' }
     },
     {
-        reggeli: { nev: 'Diós banán zabkása', hozzavalok: '60g zabpehely, 300ml tej, 1 banán, 30g darált dió, 1 tk. méz', elkeszites: 'Főzd meg a zabot tejben. Keverd hozzá a darált diót és a mézet. Tedd rá a felszeletelt banánt.' },
-        ebed: { nev: 'Egyszerű csicseriborsó curry', hozzavalok: '200g csicseriborsó, paradicsom, kókusztej, curry, kurkuma, fokhagyma, hagyma', elkeszites: 'Párold meg a hagymát és fokhagymát. Add hozzá a fűszereket, paradicsomot és csicseriborsót. Főzd 15 percig.' },
-        vacsora: { nev: 'Zöldborsós tonhalas tészta', hozzavalok: '80g teljes kiőrlésű tészta, 1 doboz tonhal, 100g zöldborsó, fokhagyma, olívaolaj, citromlé', elkeszites: 'Főzd meg a tésztát. Süsd meg a fokhagymát olajban, add hozzá a tonhalat és borsót. Keverd a tésztába.' }
+        reggeli: { nev: 'Walnut Banana Oatmeal', hozzavalok: '60g rolled oats, 300ml milk, 1 banana, 30g crushed walnuts, 1 tsp honey', elkeszites: 'Cook oats in milk. Stir in crushed walnuts and honey. Top with sliced banana.' },
+        ebed: { nev: 'Simple Chickpea Curry', hozzavalok: '200g chickpeas, tomato, coconut milk, curry powder, turmeric, garlic, onion', elkeszites: 'Sauté onion and garlic. Add spices, tomato and chickpeas. Cook 15 minutes.' },
+        vacsora: { nev: 'Tuna and Pea Pasta', hozzavalok: '80g whole-grain pasta, 1 can tuna, 100g green peas, garlic, olive oil, lemon juice', elkeszites: 'Cook pasta. Sauté garlic in oil, add tuna and peas. Toss with pasta.' }
     },
     {
-        reggeli: { nev: 'Sütőtökkrémes pirítós', hozzavalok: '2 szelet teljes kiőrlésű kenyér, 3 ek. sütőtökkrém, 2 tojás, spenót, só', elkeszites: 'Pirítsd meg a kenyeret, kend meg sütőtökkrémmel. Süss buggyantott tojást és tedd rá a spenóttal.' },
-        ebed: { nev: 'Csirkés rizzsel töltött paprika', hozzavalok: '2 paprika, 150g csirkemell, 80g barna rizs, paradicsom, fűszerek', elkeszites: 'Főzd meg a rizst, keverd a csirkével és a paradicsommal. Töltsd a paprikába, süsd 20 percig.' },
-        vacsora: { nev: 'Citromos rozmaring csirke spenóttal', hozzavalok: '200g csirkemell, 2 marék spenót, 1 citrom, rozmaring, fokhagyma, olívaolaj', elkeszites: 'Pácolj be a csirkét citromlével és rozmaringgal. Süsd meg serpenyőben. Melléje tálald a párolt spenótot.' }
+        reggeli: { nev: 'Pumpkin Toast with Poached Eggs', hozzavalok: '2 slices whole-grain bread, 3 tbsp pumpkin puree, 2 eggs, spinach, salt', elkeszites: 'Toast bread, spread with pumpkin puree. Poach eggs and place on top with spinach.' },
+        ebed: { nev: 'Chicken and Rice Stuffed Peppers', hozzavalok: '2 bell peppers, 150g chicken breast, 80g brown rice, tomato, spices', elkeszites: 'Cook rice, mix with chicken and tomato. Stuff into peppers, bake 20 minutes.' },
+        vacsora: { nev: 'Lemon Rosemary Chicken with Spinach', hozzavalok: '200g chicken breast, 2 handfuls spinach, 1 lemon, rosemary, garlic, olive oil', elkeszites: 'Marinate chicken in lemon juice and rosemary. Pan-fry. Serve alongside steamed spinach.' }
     },
     {
-        reggeli: { nev: 'Rántotta avokádóval', hozzavalok: '3 tojás, 1 avokádó, paradicsom, só, bors, olívaolaj', elkeszites: 'Verd fel a tojásokat, süsd meg kevés olajban. Kend rá az avokádót, tálald paradicsommal.' },
-        ebed: { nev: 'Lazacos görög saláta', hozzavalok: '150g sült lazac, uborka, paradicsom, feta, olívabogyó, citromdresszleg', elkeszites: 'Süsd meg a lazacot. Keverd össze a zöldségeket. Tálald a lazaccal és az öntettel.' },
-        vacsora: { nev: 'Csirke stir-fry rizzsel', hozzavalok: '200g csirkemell, barna rizs, brokkoli, sárgarépa, szójaszósz, szezámolaj, fokhagyma', elkeszites: 'Főzd meg a rizst. Süsd át a csirkét és a zöldségeket szezámolajban, ízesítsd szójaszósszal. Tálald rizzsel.' }
+        reggeli: { nev: 'Scrambled Eggs with Avocado', hozzavalok: '3 eggs, 1 avocado, tomato, salt, pepper, olive oil', elkeszites: 'Beat eggs, cook in a little oil. Spread avocado on the side, serve with tomato.' },
+        ebed: { nev: 'Salmon Greek Salad', hozzavalok: '150g seared salmon, cucumber, tomato, feta, olives, lemon dressing', elkeszites: 'Sear the salmon. Toss vegetables together. Serve salmon over salad with dressing.' },
+        vacsora: { nev: 'Chicken Stir-Fry with Rice', hozzavalok: '200g chicken breast, brown rice, broccoli, carrot, soy sauce, sesame oil, garlic', elkeszites: 'Cook rice. Stir-fry chicken and vegetables in sesame oil, season with soy sauce. Serve over rice.' }
     },
     {
-        reggeli: { nev: 'Zabkása mazsolával és fahéjjal', hozzavalok: '60g zabpehely, 300ml tej, 1 ek. mazsola, fahéj, 1 tk. méz', elkeszites: 'Főzd fel a zabot tejben. Keverd bele a mazsolát, fahéjt és mézet.' },
-        ebed: { nev: 'Csirkés zöldség wok', hozzavalok: '150g csirkemell, paprika, cukkini, hagyma, fokhagyma, szójaszósz, sesame oil, gyömbér', elkeszites: 'Nagy lángon süsd át a csirkét 3 percig. Add hozzá a zöldségeket, fűszerezd, keverd 3 percig.' },
-        vacsora: { nev: 'Tepsis tőkehal citromos fűszervajjal', hozzavalok: '200g tőkehal, 30g vaj, citromlé, fokhagyma, petrezselyem, só, bors', elkeszites: 'Olvaszd meg a vajat fokhagymával. Kend rá a halra, locsold meg citromlével. Süsd 200°C-on 15 percig.' }
+        reggeli: { nev: 'Oatmeal with Raisins and Cinnamon', hozzavalok: '60g rolled oats, 300ml milk, 1 tbsp raisins, cinnamon, 1 tsp honey', elkeszites: 'Cook oats in milk. Stir in raisins, cinnamon and honey.' },
+        ebed: { nev: 'Chicken and Vegetable Wok', hozzavalok: '150g chicken breast, bell pepper, zucchini, onion, garlic, soy sauce, sesame oil, ginger', elkeszites: 'Stir-fry chicken on high heat for 3 minutes. Add vegetables, season, stir-fry 3 more minutes.' },
+        vacsora: { nev: 'Baked Cod with Herb Butter', hozzavalok: '200g cod fillet, 30g butter, lemon juice, garlic, parsley, salt, pepper', elkeszites: 'Melt butter with garlic. Brush over fish, drizzle with lemon juice. Bake at 200°C for 15 minutes.' }
     },
     {
-        reggeli: { nev: 'Fehérjés csokoládé smoothie', hozzavalok: '1 adag csokoládés fehérjepor, 1 banán, 250ml mandulatej, 1 ek. mogyoróvaj', elkeszites: 'Turmixold össze az összes alapanyagot. Tálald azonnal.' },
-        ebed: { nev: 'Sült csirkés quinoa tál', hozzavalok: '150g csirkemell, 80g quinoa, sült paprika, paradicsom, babérlevél, olívaolaj', elkeszites: 'Főzd meg a quinoát. Süsd a csirkét és a paprikát. Tálald együtt az összetevőkkel.' },
-        vacsora: { nev: 'Marha steak párolt zöldségekkel', hozzavalok: '180g marha steak, spárga, sárgarépa, só, bors, rozmaring, olívaolaj', elkeszites: 'Süsd a steaket forró serpenyőben 3 percig oldalanként. Párold meg a zöldségeket. Tálald együtt.' }
+        reggeli: { nev: 'Chocolate Protein Smoothie', hozzavalok: '1 scoop chocolate protein powder, 1 banana, 250ml almond milk, 1 tbsp peanut butter', elkeszites: 'Blend all ingredients together. Serve immediately.' },
+        ebed: { nev: 'Roasted Chicken Quinoa Bowl', hozzavalok: '150g chicken breast, 80g quinoa, roasted bell pepper, tomato, bay leaf, olive oil', elkeszites: 'Cook quinoa. Roast chicken and pepper. Arrange together in a bowl.' },
+        vacsora: { nev: 'Beef Steak with Steamed Vegetables', hozzavalok: '180g beef steak, asparagus, carrot, salt, pepper, rosemary, olive oil', elkeszites: 'Sear steak in a hot pan 3 minutes per side. Steam vegetables. Serve together.' }
     },
     {
-        reggeli: { nev: 'Gyümölcsös fehérjés zabkása', hozzavalok: '60g zabpehely, 300ml tej, 1 adag vanília fehérjepor, eper, kiwi', elkeszites: 'Főzd meg a zabot. Keverd hozzá a fehérjeport, hagyd kicsit hűlni. Tedd rá a gyümölcsöket.' },
-        ebed: { nev: 'Spárga krémleves pirítóssal', hozzavalok: '400g spárga, 1 hagyma, vegetáriánus alaplé, tejszín, só, bors, olívaolaj', elkeszites: 'Párold meg a hagymát, add hozzá a spárgát és alaplevet. Főzd 15 percig, turmixold, add hozzá a tejszínt.' },
-        vacsora: { nev: 'Csirkés padlizsán stir-fry', hozzavalok: '200g csirkemell, 1 padlizsán, paprika, szójaszósz, fokhagyma, olívaolaj', elkeszites: 'Süsd meg a csirkét fokhagymával. Add hozzá a felkockázott padlizsánt és paprikát. Ízesítsd szójaszósszal.' }
+        reggeli: { nev: 'Fruit and Protein Oatmeal', hozzavalok: '60g rolled oats, 300ml milk, 1 scoop vanilla protein powder, strawberries, kiwi', elkeszites: 'Cook oats. Stir in protein powder while slightly warm. Top with fruit.' },
+        ebed: { nev: 'Cream of Asparagus Soup', hozzavalok: '400g asparagus, 1 onion, vegetable stock, cream, salt, pepper, olive oil', elkeszites: 'Sauté onion, add asparagus and stock. Cook 15 minutes, blend, stir in cream.' },
+        vacsora: { nev: 'Chicken and Eggplant Stir-Fry', hozzavalok: '200g chicken breast, 1 eggplant, bell pepper, soy sauce, garlic, olive oil', elkeszites: 'Sauté chicken with garlic. Add diced eggplant and pepper. Season with soy sauce.' }
     },
     {
-        reggeli: { nev: 'Lazacos rántotta teljes kiőrlésű kenyérrel', hozzavalok: '3 tojás, 50g füstölt lazac, kapor, citromlé, 1 szelet kenyér', elkeszites: 'Süss rántottát. Tedd rá a lazacot és a kaprot. Locsold meg citromlével. Fogyaszd pirítóssal.' },
-        ebed: { nev: 'Gyors csicseriborsó saláta', hozzavalok: '200g csicseriborsó, 1 avokádó, paradicsom, citromlé, koriander, olívaolaj', elkeszites: 'Keverd össze az összetevőket, locsold meg citromlével és olívaolajjal.' },
-        vacsora: { nev: 'Fűszeres sültcsirke és quinoa', hozzavalok: '200g csirkecomb (bőr nélkül), 80g quinoa, kurkuma, pirospaprika, fokhagyma, citromlé', elkeszites: 'Pácolj be a csirkét fűszerekkel. Süsd 180°C-on 30 percig. Főzd meg a quinoát. Tálald együtt.' }
+        reggeli: { nev: 'Smoked Salmon Scrambled Eggs on Toast', hozzavalok: '3 eggs, 50g smoked salmon, dill, lemon juice, 1 slice bread', elkeszites: 'Scramble eggs. Top with salmon and dill. Drizzle with lemon juice. Serve with toast.' },
+        ebed: { nev: 'Quick Chickpea Salad', hozzavalok: '200g chickpeas, 1 avocado, tomato, lemon juice, cilantro, olive oil', elkeszites: 'Toss all ingredients together, drizzle with lemon juice and olive oil.' },
+        vacsora: { nev: 'Spiced Roast Chicken with Quinoa', hozzavalok: '200g chicken thighs (skinless), 80g quinoa, turmeric, paprika, garlic, lemon juice', elkeszites: 'Marinate chicken in spices. Bake at 180°C for 30 minutes. Cook quinoa. Serve together.' }
     },
     {
-        reggeli: { nev: 'Mézes diós görög joghurt', hozzavalok: '200g görög joghurt, 2 ek. méz, 40g dió, 1 alma', elkeszites: 'Tedd a joghurtot tálba. Szórd rá a diót, add hozzá az apróra vágott almát és mézet.' },
-        ebed: { nev: 'Pirított tofu zöldséges rizzsel', hozzavalok: '150g kemény tofu, barna rizs, paprika, hagyma, szójaszósz, szezámolaj', elkeszites: 'Pirítsd meg a tofut serpenyőben. Főzd meg a rizst. Süsd meg a zöldségeket. Keverd össze szójaszósszal.' },
-        vacsora: { nev: 'Grillezett lazac spárgával', hozzavalok: '180g lazac, spárga, citrom, fokhagyma, olívaolaj, só, bors', elkeszites: 'Grillezd a lazacot 4-5 percig oldalanként. A spárgát süsd forró serpenyőben 5 percig. Tálald citrommal.' }
+        reggeli: { nev: 'Honey Walnut Greek Yogurt', hozzavalok: '200g Greek yogurt, 2 tbsp honey, 40g walnuts, 1 apple', elkeszites: 'Spoon yogurt into a bowl. Top with walnuts, diced apple and honey.' },
+        ebed: { nev: 'Crispy Tofu with Vegetable Rice', hozzavalok: '150g firm tofu, brown rice, bell pepper, onion, soy sauce, sesame oil', elkeszites: 'Pan-fry tofu until golden. Cook rice. Sauté vegetables. Combine with soy sauce.' },
+        vacsora: { nev: 'Grilled Salmon with Asparagus', hozzavalok: '180g salmon, asparagus, lemon, garlic, olive oil, salt, pepper', elkeszites: 'Grill salmon 4-5 minutes per side. Sauté asparagus in a hot pan for 5 minutes. Serve with lemon.' }
     },
     {
-        reggeli: { nev: 'Teljes kiőrlésű muffin tojással', hozzavalok: '2 tojás, 50g spenót, 30g gomba, reszelt sajt, só, bors', elkeszites: 'Keverd össze a tojást a zöldségekkel. Öntsd muffin formákba, süsd 180°C-on 18 percig.' },
-        ebed: { nev: 'Pikáns csirke feketebab saláta', hozzavalok: '150g csirkemell, 150g fekete bab, kukorica, avokádó, lime, chili, koriander', elkeszites: 'Süsd meg fűszeresen a csirkét. Keverd össze az összetevőket. Locsold meg lime-lével.' },
-        vacsora: { nev: 'Sütőtökös sertésszűz', hozzavalok: '200g sertésszűz, 200g sütőtök, rozmaring, fokhagyma, olívaolaj, só, bors', elkeszites: 'Tepsibe helyezd a húst és a felkockázott sütőtököt. Fűszerezd, süsd 190°C-on 25 percig.' }
+        reggeli: { nev: 'Whole-Grain Egg Muffins', hozzavalok: '2 eggs, 50g spinach, 30g mushrooms, shredded cheese, salt, pepper', elkeszites: 'Mix eggs with vegetables. Pour into muffin tins, bake at 180°C for 18 minutes.' },
+        ebed: { nev: 'Spicy Chicken Black Bean Salad', hozzavalok: '150g chicken breast, 150g black beans, corn, avocado, lime, chili, cilantro', elkeszites: 'Season and grill chicken. Toss with all other ingredients. Drizzle with lime juice.' },
+        vacsora: { nev: 'Pork Tenderloin with Roasted Pumpkin', hozzavalok: '200g pork tenderloin, 200g pumpkin, rosemary, garlic, olive oil, salt, pepper', elkeszites: 'Place pork and cubed pumpkin on a baking sheet. Season and roast at 190°C for 25 minutes.' }
     },
     {
-        reggeli: { nev: 'Banán-málna turmix', hozzavalok: '1 banán, 100g málna (fagyasztott), 200g görög joghurt, 1 ek. lenmag', elkeszites: 'Turmixold össze az összes alapanyagot simára. Tálald azonnal.' },
-        ebed: { nev: 'Könnyed tojásos rizzsel', hozzavalok: '80g barna rizs, 3 tojás, borsó, hagyma, szójaszósz, szezámolaj', elkeszites: 'Főzd meg a rizst. Süsd meg a tojást apróra vágott hagymával. Add a rizst, keverd bele a borsót és szójaszószt.' },
-        vacsora: { nev: 'Csirkés fajita teljes kiőrlésű tortillával', hozzavalok: '200g csirkemell, paprika, hagyma, teljes kiőrlésű tortilla, guacamole, salsa', elkeszites: 'Süsd meg fűszeresen a csirkét és a zöldségeket. Töltsd a tortillába guacamoléval és salsával.' }
+        reggeli: { nev: 'Banana Raspberry Smoothie', hozzavalok: '1 banana, 100g frozen raspberries, 200g Greek yogurt, 1 tbsp flaxseed', elkeszites: 'Blend all ingredients until smooth. Serve immediately.' },
+        ebed: { nev: 'Egg Fried Rice', hozzavalok: '80g brown rice, 3 eggs, peas, onion, soy sauce, sesame oil', elkeszites: 'Cook rice. Scramble eggs with diced onion. Add rice, stir in peas and soy sauce.' },
+        vacsora: { nev: 'Chicken Fajitas in Whole-Grain Tortillas', hozzavalok: '200g chicken breast, bell pepper, onion, whole-grain tortillas, guacamole, salsa', elkeszites: 'Season and grill chicken and vegetables. Fill tortillas with guacamole and salsa.' }
     },
     {
-        reggeli: { nev: 'Protein zabkása bogyókkal', hozzavalok: '60g zabpehely, 1 adag fehérjepor, 300ml tej, vegyes bogyós gyümölcs', elkeszites: 'Főzd meg a zabot. Hagyd kicsit hűlni, keverd hozzá a fehérjeport. Tedd rá a bogyós gyümölcsöket.' },
-        ebed: { nev: 'Marokkói csirke salátával', hozzavalok: '150g csirkemell, köles, paradicsom, uborka, menta, koriander, citromlé, olívaolaj', elkeszites: 'Főzd meg a kölest. Fűszeres csirkét süss. Keverd össze a friss zöldségekkel és fűszerekkel.' },
-        vacsora: { nev: 'Mediterrán tőkehal olívabogyóval', hozzavalok: '200g tőkehal, olívabogyó, paradicsom, kapribogyó, fokhagyma, olívaolaj, petrezselyem', elkeszites: 'Süsd meg a halat serpenyőben. Add hozzá a paradicsomot, olívabogyót és kapribogyót. Főzd 5 percig.' }
+        reggeli: { nev: 'Protein Oats with Berries', hozzavalok: '60g rolled oats, 1 scoop protein powder, 300ml milk, mixed berries', elkeszites: 'Cook oats. Let cool slightly, stir in protein powder. Top with berries.' },
+        ebed: { nev: 'Moroccan Chicken with Couscous', hozzavalok: '150g chicken breast, couscous, tomato, cucumber, mint, cilantro, lemon juice, olive oil', elkeszites: 'Cook couscous. Grill spiced chicken. Toss with fresh vegetables and herbs.' },
+        vacsora: { nev: 'Mediterranean Cod with Olives', hozzavalok: '200g cod fillet, olives, tomato, capers, garlic, olive oil, parsley', elkeszites: 'Pan-fry fish. Add tomato, olives and capers. Cook 5 more minutes.' }
     },
     {
-        reggeli: { nev: 'Avokádós tojás teljes kiőrlésű muffinon', hozzavalok: '2 tojás, 1 avokádó, 2 teljes kiőrlésű angol muffin, só, bors, chili', elkeszites: 'Süss buggyantott tojást. Pirítsd meg a muffint. Pürésítsd az avokádót, kend a muffinra, tedd rá a tojást.' },
-        ebed: { nev: 'Csirkés quinoa leves', hozzavalok: '150g csirkemell, 60g quinoa, sárgarépa, zeller, hagyma, petrezselyem, alaplé', elkeszites: 'Főzd meg a csirkét alaplében a zöldségekkel. Add hozzá a quinoát, főzd 15 percig. Szórd meg petrezselyemmel.' },
-        vacsora: { nev: 'Fűszeres sütőtök krémleves grillezett csirkével', hozzavalok: '400g sütőtök, 150g csirkemell, kókusztej, curry, gyömbér, fokhagyma, alaplé', elkeszites: 'Süsd meg a sütőtököt. Turmixold alaplével és kókusztejjel simára. Grillezd a csirkét. Tálald a levessel.' }
+        reggeli: { nev: 'Avocado Egg English Muffin', hozzavalok: '2 eggs, 1 avocado, 2 whole-grain English muffins, salt, pepper, chili flakes', elkeszites: 'Poach eggs. Toast muffins. Mash avocado, spread on muffins, top with eggs.' },
+        ebed: { nev: 'Chicken Quinoa Soup', hozzavalok: '150g chicken breast, 60g quinoa, carrot, celery, onion, parsley, stock', elkeszites: 'Cook chicken in stock with vegetables. Add quinoa, cook 15 minutes. Sprinkle with parsley.' },
+        vacsora: { nev: 'Spiced Pumpkin Soup with Grilled Chicken', hozzavalok: '400g pumpkin, 150g chicken breast, coconut milk, curry powder, ginger, garlic, stock', elkeszites: 'Roast pumpkin. Blend with stock and coconut milk until smooth. Grill chicken. Serve together.' }
     },
     {
-        reggeli: { nev: 'Eper-banán joghurt tál', hozzavalok: '200g görög joghurt, 100g eper, 1 banán, 30g granola, 1 ek. méz', elkeszites: 'Tedd tálba a joghurtot. Szeld fel a gyümölcsöket, helyezd rá. Szórd meg granolával, locsold meg mézzel.' },
-        ebed: { nev: 'Pirított csicseriborsós spenót saláta', hozzavalok: '150g csicseriborsó, 2 marék spenót, paradicsom, feta, citromdresszleg, fokhagyma', elkeszites: 'Pirítsd meg a csicseriborsót serpenyőben. Keverd össze a spenóttal és paradicsommal. Tedd rá a fetát és öntet.' },
-        vacsora: { nev: '🏆 Ünnepi lazactál – 30 napos sikerre!', hozzavalok: '200g lazacfilé, 80g quinoa, avokádó, csersznyeparadicsom, spárga, citrom, kapor', elkeszites: 'Grillezd a lazacot. Főzd meg a quinoát. Rendezd el tálban a sült spárgával, avokádóval és paradicsommal. Szórd rá a kaprot, tálald citrommal!' }
+        reggeli: { nev: 'Strawberry Banana Yogurt Bowl', hozzavalok: '200g Greek yogurt, 100g strawberries, 1 banana, 30g granola, 1 tbsp honey', elkeszites: 'Spoon yogurt into a bowl. Add sliced fruit on top. Sprinkle with granola and drizzle with honey.' },
+        ebed: { nev: 'Crispy Chickpea Spinach Salad', hozzavalok: '150g chickpeas, 2 handfuls spinach, tomato, feta, lemon dressing, garlic', elkeszites: 'Pan-fry chickpeas until crispy. Toss with spinach and tomato. Top with feta and dressing.' },
+        vacsora: { nev: '🏆 Celebration Salmon Bowl – 30-Day Success!', hozzavalok: '200g salmon fillet, 80g quinoa, avocado, cherry tomatoes, asparagus, lemon, dill', elkeszites: 'Grill salmon. Cook quinoa. Arrange in a bowl with roasted asparagus, avocado and tomatoes. Sprinkle with dill, serve with lemon!' }
     }
 ];
 
