@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Football Tips & FitHit30M Fitness Program">
+    <meta name="theme-color" content="#4A90E2">
+    <title>Football Tips & FitHit30M</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <main>
+        <!-- Tab Navigation -->
+        <nav class="tab-nav" role="tablist" aria-label="Main navigation">
+            <button
+                class="tab-btn {% if active_tab == 'football' %}active{% endif %}"
+                id="tab-football"
+                role="tab"
+                aria-selected="{{ 'true' if active_tab == 'football' else 'false' }}"
+                aria-controls="panel-football"
+                onclick="switchTab('football')"
+            >
+                ⚽ Football Tips
+            </button>
+            <button
+                class="tab-btn {% if active_tab == 'fitness' %}active{% endif %}"
+                id="tab-fitness"
+                role="tab"
+                aria-selected="{{ 'true' if active_tab == 'fitness' else 'false' }}"
+                aria-controls="panel-fitness"
+                onclick="switchTab('fitness')"
+            >
+                💪 FitHit30M
+            </button>
+        </nav>
+
+        <!-- Football Tips Panel -->
+        <div
+            id="panel-football"
+            class="tab-panel {% if active_tab == 'football' %}active{% endif %}"
+            role="tabpanel"
+            aria-labelledby="tab-football"
+        >
+            <header class="card football-header">
+                <h1>⚽ Football Betting Tips</h1>
+                <p>Today's top match predictions</p>
+            </header>
+
+            <section class="card">
+                <p class="tips-date" id="tips-date"></p>
+                <div id="tips-container">
+                    <div class="tips-loading">Loading today's tips... ⏳</div>
+                </div>
+                <button class="btn btn-primary refresh-btn" onclick="loadTips()">🔄 Refresh Tips</button>
+            </section>
+        </div>
+
+        <!-- FitHit30M Fitness Panel -->
+        <div
+            id="panel-fitness"
+            class="tab-panel {% if active_tab == 'fitness' %}active{% endif %}"
+            role="tabpanel"
+            aria-labelledby="tab-fitness"
+        >
+            <!-- Registration Screen -->
+            <section id="auth-screen" class="card auth-container" role="region" aria-label="Registration screen">
+                <h1>FitHit30M 🚀</h1>
+                <p class="subtitle">30-day fitness challenge</p>
+
+                <form id="registration-form" novalidate>
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                            aria-required="true"
+                            aria-describedby="name-error"
+                        >
+                        <span id="name-error" class="error-message" role="alert"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weight">Your Weight (kg) *</label>
+                        <input
+                            type="number"
+                            id="weight"
+                            name="weight"
+                            placeholder="e.g. 75"
+                            min="20"
+                            max="300"
+                            required
+                            aria-required="true"
+                            aria-describedby="weight-error"
+                        >
+                        <span id="weight-error" class="error-message" role="alert"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="start-btn">
+                        <span class="btn-text">Start!</span>
+                        <span class="loading-spinner" id="loading-spinner" hidden aria-hidden="true"></span>
+                    </button>
+                </form>
+
+                <p class="form-hint">* Required fields</p>
+            </section>
+
+            <!-- Main Fitness Application -->
+            <section id="main-app" class="main-app" hidden role="region" aria-label="Main application">
+                <!-- Day Display Header -->
+                <header class="card card-header" role="banner">
+                    <h1 id="day-display">Day 1 / 30</h1>
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <p id="user-greeting" class="user-greeting"></p>
+                </header>
+
+                <!-- Workout Card -->
+                <article class="card workout-card">
+                    <h2>🏋️ Today's Workout</h2>
+                    <div id="workout" class="workout-content" role="main"></div>
+
+                    <div class="button-group">
+                        <button class="btn btn-primary" id="next-day-btn" onclick="app.nextDay()">
+                            Day Done ✅
+                        </button>
+                        <button class="btn btn-secondary" id="reset-btn" onclick="app.reset()">
+                            Restart
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Meals Card -->
+                <article class="card meals-card">
+                    <h2>🥗 Today's Meal Plan</h2>
+
+                    <div class="meal-item">
+                        <h3>🌅 Breakfast</h3>
+                        <p class="meal-name" id="meal-breakfast-name"></p>
+                        <p class="meal-detail"><strong>Ingredients:</strong> <span id="meal-breakfast-ingredients"></span></p>
+                        <p class="meal-detail"><strong>Instructions:</strong> <span id="meal-breakfast-instructions"></span></p>
+                    </div>
+
+                    <div class="meal-item">
+                        <h3>☀️ Lunch</h3>
+                        <p class="meal-name" id="meal-lunch-name"></p>
+                        <p class="meal-detail"><strong>Ingredients:</strong> <span id="meal-lunch-ingredients"></span></p>
+                        <p class="meal-detail"><strong>Instructions:</strong> <span id="meal-lunch-instructions"></span></p>
+                    </div>
+
+                    <div class="meal-item">
+                        <h3>🌙 Dinner</h3>
+                        <p class="meal-name" id="meal-dinner-name"></p>
+                        <p class="meal-detail"><strong>Ingredients:</strong> <span id="meal-dinner-ingredients"></span></p>
+                        <p class="meal-detail"><strong>Instructions:</strong> <span id="meal-dinner-instructions"></span></p>
+                    </div>
+                </article>
+
+                <!-- Progress Summary -->
+                <article class="card stats-card">
+                    <h3>📊 Progress</h3>
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <span class="stat-value" id="completed-days">0</span>
+                            <span class="stat-label">Days completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="remaining-days">30</span>
+                            <span class="stat-label">Days remaining</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- User Info Footer -->
+                <footer class="card user-info-card">
+                    <div class="user-info">
+                        <p><strong>User:</strong> <span id="display-name"></span></p>
+                        <p><strong>Starting weight:</strong> <span id="display-weight"></span> kg</p>
+                    </div>
+                    <button class="btn btn-outline" id="logout-btn" onclick="app.logout()">
+                        Logout
+                    </button>
+                </footer>
+            </section>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        // Tab switching
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+            document.querySelectorAll('.tab-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            document.getElementById('tab-' + tab).classList.add('active');
+            document.getElementById('tab-' + tab).setAttribute('aria-selected', 'true');
+            document.getElementById('panel-' + tab).classList.add('active');
+
+            if (tab === 'football') {
+                loadTips();
+            }
+
+            history.replaceState(null, '', tab === 'football' ? '/' : '/fitness');
+        }
+
+        // Football tips loader
+        function loadTips() {
+            const container = document.getElementById('tips-container');
+            const dateEl = document.getElementById('tips-date');
+            container.innerHTML = `<div class="tips-loading">Loading today's tips... ⏳</div>`;
+
+            const today = new Date().toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            dateEl.textContent = today;
+
+            fetch('/api/tips')
+                .then(res => res.json())
+                .then(tips => {
+                    if (!tips || tips.length === 0) {
+                        container.innerHTML = '<div class="tips-empty">No matches found for today 📅<br>Check back later!</div>';
+                        return;
+                    }
+
+                    const ul = document.createElement('ul');
+                    ul.className = 'tips-list';
+                    tips.forEach(t => {
+                        const li = document.createElement('li');
+                        li.className = 'tip-item';
+                        li.innerHTML = `
+                            <span class="tip-match">⚽ ${t.match}</span>
+                            <span class="tip-value">${t.tip}</span>
+                        `;
+                        ul.appendChild(li);
+                    });
+                    container.innerHTML = '';
+                    container.appendChild(ul);
+                })
+                .catch(() => {
+                    container.innerHTML = '<div class="tips-error">⚠️ Could not load tips. Please check your API key or try again later.</div>';
+                });
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const activeTab = '{{ active_tab }}';
+            if (activeTab === 'football') {
+                loadTips();
+            }
+            app.init();
+        });
+    </script>
+</body>
+</html>
