@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FitHit30M - 30 napos fitness program">
+    <meta name="description" content="FitHit30M - 30-Day Fitness Program">
     <meta name="theme-color" content="#4A90E2">
-    <title>FitHit30M - 30 Napos Fitness Program</title>
+    <title>FitHit30M - 30-Day Fitness Program</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js" defer></script>
     <!-- Fallback for Chart.js -->
@@ -21,18 +21,18 @@
 <body>
     <main>
         <!-- Registration Screen -->
-        <section id="auth-screen" class="card auth-container" role="region" aria-label="Regisztrációs képernyő">
+        <section id="auth-screen" class="card auth-container" role="region" aria-label="Registration screen">
             <h1>FitHit30M 🚀</h1>
-            <p class="subtitle">30 napos fitness challenge</p>
+            <p class="subtitle">30-day fitness challenge</p>
             
             <form id="registration-form" novalidate>
                 <div class="form-group">
-                    <label for="name">Neved *</label>
+                    <label for="name">Your Name *</label>
                     <input 
                         type="text" 
                         id="name" 
                         name="name"
-                        placeholder="Írd be a neved"
+                        placeholder="Enter your name"
                         required
                         aria-required="true"
                         aria-describedby="name-error"
@@ -41,12 +41,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="weight">Súlyod (kg) *</label>
+                    <label for="weight">Your Weight (kg) *</label>
                     <input 
                         type="number" 
                         id="weight" 
                         name="weight"
-                        placeholder="pl. 75"
+                        placeholder="e.g. 75"
                         min="20"
                         max="300"
                         required
@@ -57,19 +57,19 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary" id="start-btn">
-                    <span class="btn-text">Indítás!</span>
+                    <span class="btn-text">Start!</span>
                     <span class="loading-spinner" id="loading-spinner" hidden aria-hidden="true"></span>
                 </button>
             </form>
 
-            <p class="form-hint">* Kötelező mezők</p>
+            <p class="form-hint">* Required fields</p>
         </section>
 
         <!-- Main Application -->
-        <section id="main-app" class="main-app" hidden role="region" aria-label="Főalkalmazás">
+        <section id="main-app" class="main-app" hidden role="region" aria-label="Main application">
             <!-- Day Display Header -->
             <header class="card card-header" role="banner">
-                <h1 id="day-display">Nap 1 / 30</h1>
+                <h1 id="day-display">Day 1 / 30</h1>
                 <div class="progress-bar">
                     <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
                 </div>
@@ -78,56 +78,56 @@
 
             <!-- Workout Card -->
             <article class="card workout-card">
-                <h2>🏋️ Mai Edzés</h2>
+                <h2>🏋️ Today's Workout</h2>
                 <div id="workout" class="workout-content" role="main"></div>
                 
                 <div class="button-group">
                     <button class="btn btn-primary" id="next-day-btn" onclick="app.nextDay()">
-                        Nap Kész ✅
+                        Day Done ✅
                     </button>
                     <button class="btn btn-secondary" id="reset-btn" onclick="app.reset()">
-                        Újrakezdés
+                        Restart
                     </button>
                 </div>
             </article>
 
             <!-- Meals Card -->
             <article class="card meals-card">
-                <h2>🥗 Mai Étkezési Terv</h2>
+                <h2>🥗 Today's Meal Plan</h2>
 
                 <div class="meal-item">
-                    <h3>🌅 Reggeli</h3>
-                    <p class="meal-name" id="meal-reggeli-nev"></p>
-                    <p class="meal-detail"><strong>Hozzávalók:</strong> <span id="meal-reggeli-hozzavalok"></span></p>
-                    <p class="meal-detail"><strong>Elkészítés:</strong> <span id="meal-reggeli-elkeszites"></span></p>
+                    <h3>🌅 Breakfast</h3>
+                    <p class="meal-name" id="meal-breakfast-name"></p>
+                    <p class="meal-detail"><strong>Ingredients:</strong> <span id="meal-breakfast-ingredients"></span></p>
+                    <p class="meal-detail"><strong>Instructions:</strong> <span id="meal-breakfast-instructions"></span></p>
                 </div>
 
                 <div class="meal-item">
-                    <h3>☀️ Ebéd</h3>
-                    <p class="meal-name" id="meal-ebed-nev"></p>
-                    <p class="meal-detail"><strong>Hozzávalók:</strong> <span id="meal-ebed-hozzavalok"></span></p>
-                    <p class="meal-detail"><strong>Elkészítés:</strong> <span id="meal-ebed-elkeszites"></span></p>
+                    <h3>☀️ Lunch</h3>
+                    <p class="meal-name" id="meal-lunch-name"></p>
+                    <p class="meal-detail"><strong>Ingredients:</strong> <span id="meal-lunch-ingredients"></span></p>
+                    <p class="meal-detail"><strong>Instructions:</strong> <span id="meal-lunch-instructions"></span></p>
                 </div>
 
                 <div class="meal-item">
-                    <h3>🌙 Vacsora</h3>
-                    <p class="meal-name" id="meal-vacsora-nev"></p>
-                    <p class="meal-detail"><strong>Hozzávalók:</strong> <span id="meal-vacsora-hozzavalok"></span></p>
-                    <p class="meal-detail"><strong>Elkészítés:</strong> <span id="meal-vacsora-elkeszites"></span></p>
+                    <h3>🌙 Dinner</h3>
+                    <p class="meal-name" id="meal-dinner-name"></p>
+                    <p class="meal-detail"><strong>Ingredients:</strong> <span id="meal-dinner-ingredients"></span></p>
+                    <p class="meal-detail"><strong>Instructions:</strong> <span id="meal-dinner-instructions"></span></p>
                 </div>
             </article>
 
             <!-- Progress Summary -->
             <article class="card stats-card">
-                <h3>📊 Haladás</h3>
+                <h3>📊 Progress</h3>
                 <div class="stats-grid">
                     <div class="stat">
                         <span class="stat-value" id="completed-days">0</span>
-                        <span class="stat-label">Nap befejezve</span>
+                        <span class="stat-label">Days completed</span>
                     </div>
                     <div class="stat">
                         <span class="stat-value" id="remaining-days">30</span>
-                        <span class="stat-label">Nap hátra</span>
+                        <span class="stat-label">Days remaining</span>
                     </div>
                 </div>
             </article>
@@ -135,11 +135,11 @@
             <!-- User Info Footer -->
             <footer class="card user-info-card">
                 <div class="user-info">
-                    <p><strong>Felhasználó:</strong> <span id="display-name"></span></p>
-                    <p><strong>Kezdeti súly:</strong> <span id="display-weight"></span> kg</p>
+                    <p><strong>User:</strong> <span id="display-name"></span></p>
+                    <p><strong>Starting weight:</strong> <span id="display-weight"></span> kg</p>
                 </div>
                 <button class="btn btn-outline" id="logout-btn" onclick="app.logout()">
-                    Kijelentkezés
+                    Logout
                 </button>
             </footer>
         </section>
